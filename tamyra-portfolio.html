@@ -1,0 +1,1845 @@
+<title>Tamyra Siby Portfolio</title>
+<meta name="claude:viewport-fit-sides" content="cover">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..800&family=IBM+Plex+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500&display=swap">
+<style>
+/* Layout: one reading column; a full-width simulated edge console as the centerpiece; machine "rating plate" in the hero. */
+:root{
+  --bg:#E8EBE8; --surface:#F5F6F4; --panel:#FFFFFF; --ink:#1B2220; --muted:#57625E; --line:#CBD2CE; --line-strong:#9AA49F;
+  --accent:#F2A900; --accent-soft:#FBEBC2; --accent-line:#B98100; --on-accent:#1B2220;
+  --link:#0D5B78;
+  --ok:#1F7A4A; --warn:#A86400; --crit:#BC2F27; --info:#0D6A8A;
+  --ok-bg:#DCEEE3; --warn-bg:#FAEACB; --crit-bg:#F6DBD8; --info-bg:#D8E9F0;
+  --s1:#0E7C9B; --s2:#C98500; --s3:#6A58B0; --s4:#B0487A;
+  --f-display:"Archivo","Arial Narrow",system-ui,sans-serif;
+  --f-body:"IBM Plex Sans",system-ui,-apple-system,"Segoe UI",sans-serif;
+  --f-mono:"JetBrains Mono",ui-monospace,"Cascadia Mono",Consolas,monospace;
+  --r:8px;
+}
+@media (prefers-color-scheme: dark){
+  :root:not([data-theme="light"]){
+    --bg:#121615; --surface:#191E1D; --panel:#1F2523; --ink:#E3E8E5; --muted:#99A5A0; --line:#2F3836; --line-strong:#4C5754;
+    --accent:#F5B82E; --accent-soft:#3A2F15; --accent-line:#F5B82E; --on-accent:#1B2220;
+    --link:#72C6E3;
+    --ok:#52C487; --warn:#EBA43F; --crit:#F0716A; --info:#62BEDD;
+    --ok-bg:#16301F; --warn-bg:#382A11; --crit-bg:#3B1C1A; --info-bg:#132D37;
+    --s1:#4FBFDD; --s2:#F2B33D; --s3:#A898EB; --s4:#E68AB6;
+    color-scheme:dark;
+  }
+}
+:root[data-theme="dark"]{
+  --bg:#121615; --surface:#191E1D; --panel:#1F2523; --ink:#E3E8E5; --muted:#99A5A0; --line:#2F3836; --line-strong:#4C5754;
+  --accent:#F5B82E; --accent-soft:#3A2F15; --accent-line:#F5B82E; --on-accent:#1B2220;
+  --link:#72C6E3;
+  --ok:#52C487; --warn:#EBA43F; --crit:#F0716A; --info:#62BEDD;
+  --ok-bg:#16301F; --warn-bg:#382A11; --crit-bg:#3B1C1A; --info-bg:#132D37;
+  --s1:#4FBFDD; --s2:#F2B33D; --s3:#A898EB; --s4:#E68AB6;
+  color-scheme:dark;
+}
+*{box-sizing:border-box}
+body{background:var(--bg);color:var(--ink);font-family:var(--f-body);font-size:16px;line-height:1.6}
+a{color:var(--link);text-underline-offset:3px}
+:focus-visible{outline:2px solid var(--link);outline-offset:2px}
+h1,h2,h3{font-family:var(--f-display);font-stretch:112%;line-height:1.12;text-wrap:balance;margin:0}
+h2{font-size:clamp(1.6rem,3.2vw,2.2rem);font-weight:750}
+h3{font-size:1.15rem;font-weight:700}
+p{margin:0}
+.wrap{max-width:1140px;margin:0 auto;padding-left:max(16px,env(safe-area-inset-left,0px));padding-right:max(16px,env(safe-area-inset-right,0px))}
+.eyebrow{font-family:var(--f-mono);font-size:.75rem;letter-spacing:.12em;text-transform:uppercase;color:var(--muted)}
+.mono{font-family:var(--f-mono)}
+.num{font-variant-numeric:tabular-nums}
+
+/* top bar */
+.topnav{border-bottom:1px solid var(--line);background:var(--surface)}
+.topnav .wrap{display:flex;align-items:center;justify-content:space-between;gap:16px;padding-block:14px;flex-wrap:wrap}
+.brand{font-family:var(--f-display);font-stretch:125%;font-weight:800;letter-spacing:.02em;text-transform:uppercase;font-size:.95rem}
+.topnav nav{display:flex;gap:18px;flex-wrap:wrap;font-size:.9rem}
+.topnav nav a{color:var(--muted);text-decoration:none}
+.topnav nav a:hover{color:var(--ink)}
+
+/* hero */
+.hero{padding-block:56px 48px}
+.hero .wrap{display:grid;grid-template-columns:minmax(0,1.35fr) minmax(0,1fr);gap:48px;align-items:start}
+.hero h1{font-size:clamp(2.1rem,5vw,3.4rem);font-weight:800;font-stretch:118%;margin-top:14px}
+.hero h1 .mark{background:linear-gradient(transparent 62%,var(--accent) 62%,var(--accent) 92%,transparent 92%)}
+.lead{margin-top:20px;font-size:1.1rem;max-width:62ch;color:var(--ink)}
+.cta{display:flex;gap:12px;flex-wrap:wrap;margin-top:28px}
+.btn{font:inherit;font-size:.92rem;font-weight:600;border-radius:6px;padding:10px 16px;border:1.5px solid var(--ink);background:transparent;color:var(--ink);cursor:pointer;text-decoration:none;display:inline-flex;align-items:center;gap:8px}
+.btn.primary{background:var(--accent);border-color:var(--accent);color:var(--on-accent)}
+.btn:hover{filter:brightness(.96)}
+.plate{position:relative;border:1.5px solid var(--ink);border-radius:6px;background:var(--surface);padding:22px 22px 18px}
+.plate::before,.plate::after{content:"";position:absolute;top:9px;width:7px;height:7px;border-radius:50%;background:var(--line-strong);box-shadow:0 calc(100% + 0px) 0 transparent}
+.plate::before{left:9px}.plate::after{right:9px}
+.plate .screws{position:absolute;inset:auto 9px 9px 9px;display:flex;justify-content:space-between;pointer-events:none}
+.plate .screws i{width:7px;height:7px;border-radius:50%;background:var(--line-strong)}
+.plate-title{font-family:var(--f-display);font-stretch:125%;font-weight:800;text-transform:uppercase;letter-spacing:.06em;font-size:.9rem;border-bottom:1.5px solid var(--ink);padding-bottom:10px;margin-bottom:6px;display:flex;justify-content:space-between;gap:10px}
+.plate dl{margin:0;display:grid;grid-template-columns:max-content 1fr;column-gap:14px}
+.plate dt{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted);padding-block:7px;border-bottom:1px dashed var(--line)}
+.plate dd{margin:0;font-size:.9rem;padding-block:5px;border-bottom:1px dashed var(--line);min-width:0}
+.plate .foot{font-size:.78rem;color:var(--muted);margin-top:10px;margin-bottom:6px}
+
+section.block{padding-block:56px;border-top:1px solid var(--line)}
+.sec-head{display:grid;gap:10px;margin-bottom:28px;max-width:72ch}
+.sec-head p{color:var(--muted)}
+
+/* ===== console ===== */
+.console{position:relative;border:1px solid var(--line-strong);border-radius:10px;background:var(--panel);overflow:hidden;display:grid;grid-template-columns:184px minmax(0,1fr);grid-template-rows:auto 1fr;font-size:.9rem}
+.c-bar{grid-column:1/-1;display:flex;align-items:center;gap:14px;padding:10px 14px;border-bottom:1px solid var(--line);background:var(--surface);flex-wrap:wrap}
+.c-bar .dev{font-family:var(--f-mono);font-size:.8rem;font-weight:500}
+.c-bar .sim{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;background:var(--accent);color:var(--on-accent);padding:2px 7px;border-radius:3px}
+.c-bar .grow{flex:1}
+.live{display:inline-flex;align-items:center;gap:6px;font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.live i{width:8px;height:8px;border-radius:50%;background:var(--ok)}
+@media (prefers-reduced-motion:no-preference){.live i{animation:pulse 2s infinite}}
+@keyframes pulse{50%{opacity:.35}}
+.bell{position:relative;font:inherit;font-size:.8rem;background:transparent;border:1px solid var(--line);border-radius:6px;padding:4px 10px;color:var(--ink);cursor:pointer;display:inline-flex;gap:6px;align-items:center}
+.bell svg{width:15px;height:15px;fill:none;stroke:currentColor;stroke-width:1.8}
+.bell .count{min-width:18px;text-align:center;font-family:var(--f-mono);font-size:.7rem;background:var(--crit);color:#fff;border-radius:9px;padding:0 5px}
+.bell .count[data-zero]{background:var(--line);color:var(--muted)}
+.userchip{font-family:var(--f-mono);font-size:.75rem;color:var(--muted)}
+.c-nav{border-right:1px solid var(--line);background:var(--surface);padding:10px 8px;display:flex;flex-direction:column;gap:2px}
+.c-nav button{font:inherit;text-align:left;background:transparent;border:0;border-radius:6px;padding:9px 12px;color:var(--muted);cursor:pointer;display:flex;justify-content:space-between;align-items:center;gap:8px;white-space:nowrap}
+.c-nav button:hover{background:var(--bg);color:var(--ink)}
+.c-nav button[aria-selected="true"]{background:var(--accent-soft);color:var(--ink);font-weight:600;box-shadow:inset 3px 0 0 var(--accent-line)}
+.c-nav .badge{font-family:var(--f-mono);font-size:.68rem;color:var(--muted)}
+.c-main{padding:18px;min-width:0;min-height:600px}
+.c-main h3{font-size:1rem;margin-bottom:10px}
+.c-sub{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);letter-spacing:.06em;text-transform:uppercase;margin-bottom:8px}
+.grid{display:grid;gap:14px}
+.g4{grid-template-columns:repeat(4,minmax(0,1fr))}
+.g2{grid-template-columns:repeat(2,minmax(0,1fr))}
+.g-main{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr)}
+.box{border:1px solid var(--line);border-radius:var(--r);padding:14px;background:var(--panel);min-width:0}
+.box.flat{background:var(--surface)}
+.kpi .lbl{font-size:.78rem;color:var(--muted)}
+.kpi .val{font-family:var(--f-mono);font-size:1.45rem;font-weight:500;font-variant-numeric:tabular-nums;line-height:1.2}
+.kpi .val small{font-size:.75rem;color:var(--muted);margin-left:3px}
+.kpi.alert{border-color:var(--crit);background:var(--crit-bg)}
+.spark{display:block;width:100%;height:auto;margin-top:6px}
+.spark .ln{fill:none;stroke:var(--s1);stroke-width:1.6;vector-effect:non-scaling-stroke}
+.spark .area{fill:var(--s1);opacity:.12}
+.spark .dot{fill:var(--s1)}
+.kpi.alert .spark .ln,.kpi.alert .spark .dot{stroke:var(--crit);fill:var(--crit)}
+.kpi.alert .spark .ln{fill:none}
+.kpi.alert .spark .area{fill:var(--crit)}
+.chart svg{display:block;width:100%;height:auto}
+.chart .gl{stroke:var(--line);stroke-width:1}
+.chart .ax{fill:var(--muted);font-family:var(--f-mono);font-size:10px}
+.chart .s1{stroke:var(--s1)}.chart .s2{stroke:var(--s2)}.chart .s3{stroke:var(--s3)}
+.chart path{fill:none;stroke-width:2;stroke-linejoin:round}
+.chart .end1{fill:var(--s1)}.chart .end2{fill:var(--s2)}.chart .end3{fill:var(--s3)}
+.legend{display:flex;gap:16px;flex-wrap:wrap;font-size:.8rem;color:var(--muted);margin-bottom:6px}
+.legend span{display:inline-flex;align-items:center;gap:6px}
+.legend i{width:12px;height:3px;border-radius:2px;display:inline-block}
+.legend b{font-family:var(--f-mono);font-weight:500;color:var(--ink);font-variant-numeric:tabular-nums}
+
+/* chart.js cards */
+.cj-head{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-bottom:10px}
+.cj{display:grid;grid-template-columns:minmax(0,1fr) 168px;gap:12px}
+.cj-canvas{position:relative;height:220px;min-width:0}
+.cj-canvas.donut{height:200px}
+.cj-legend{list-style:none;margin:0;padding:0;font-size:.8rem}
+.cj-legend.side{max-height:220px;overflow:auto;display:grid;gap:2px;align-content:start}
+.cj-legend.row{display:flex;flex-wrap:wrap;gap:4px 14px;margin-bottom:6px}
+.cj-legend button{font:inherit;background:transparent;border:0;padding:2px 4px;border-radius:4px;color:var(--ink);cursor:pointer;display:flex;align-items:center;gap:7px;text-align:left;width:100%}
+.cj-legend.row button{width:auto}
+.cj-legend button:hover{background:var(--bg)}
+.cj-legend button.off{color:var(--muted);opacity:.55}
+.cj-legend .grp{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);margin-top:6px}
+.cj-legend .v{font-family:var(--f-mono);font-variant-numeric:tabular-nums;color:var(--muted);margin-left:auto}
+.cj-legend.row .v{margin-left:4px;color:var(--ink)}
+.sw{width:14px;height:0;border-top:3px solid;flex:none}
+.sw.dash{border-top-style:dashed;border-top-width:2px}
+.sw.dot{width:10px;height:10px;border:0;border-radius:50%}
+.cj-tip{position:absolute;pointer-events:none;z-index:4;background:var(--ink);color:var(--panel);border-radius:5px;padding:8px 10px;font-size:.75rem;white-space:nowrap;transform:translateX(-50%);opacity:0;transition:opacity .1s ease;box-shadow:0 4px 14px rgba(0,0,0,.2)}
+.cj-tip table{border-collapse:collapse;width:auto;font-size:.75rem;color:var(--panel)}
+.cj-tip th,.cj-tip td{white-space:nowrap;border:0;padding:2px 6px;color:var(--panel);font-weight:400;text-transform:none;letter-spacing:0;font-family:var(--f-mono);font-size:.72rem}
+.cj-tip thead th{font-weight:600;padding-bottom:4px;text-align:left}
+.cj-tip .cols th{opacity:.7;font-size:.66rem}
+.cj-tip td.item{font-weight:600}
+.cj-tip i{display:inline-block;width:9px;height:9px;border-radius:50%;margin-right:6px;transform:translateY(1px)}
+@media (max-width:560px){.cj{grid-template-columns:minmax(0,1fr)}.cj-legend.side{max-height:none}}
+.tbl-wrap{overflow-x:auto}
+table{border-collapse:collapse;width:100%;font-size:.84rem}
+th{font-family:var(--f-mono);font-size:.68rem;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);text-align:left;font-weight:500;padding:6px 8px;border-bottom:1px solid var(--line);white-space:nowrap}
+td{padding:7px 8px;border-bottom:1px solid var(--line);vertical-align:middle}
+td.mono,td .mono{font-size:.78rem}
+.pill{display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:600;padding:2px 8px;border-radius:10px;white-space:nowrap}
+.pill::before{content:"";width:6px;height:6px;border-radius:50%;background:currentColor}
+.pill.ok{background:var(--ok-bg);color:var(--ok)}
+.pill.warn{background:var(--warn-bg);color:var(--warn)}
+.pill.crit{background:var(--crit-bg);color:var(--crit)}
+.pill.info{background:var(--info-bg);color:var(--info)}
+.pill.off{background:var(--bg);color:var(--muted)}
+.mini{font:inherit;font-size:.75rem;padding:3px 9px;border-radius:5px;border:1px solid var(--line-strong);background:var(--panel);color:var(--ink);cursor:pointer}
+.mini:hover{background:var(--bg)}
+.mini:disabled{opacity:.45;cursor:not-allowed}
+.mini.danger{color:var(--crit);border-color:var(--crit)}
+.acts{display:flex;gap:6px;flex-wrap:wrap}
+
+.feed{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.feed li{display:grid;grid-template-columns:auto auto 1fr;gap:8px;align-items:baseline;padding:6px 0;border-bottom:1px solid var(--line);font-size:.82rem}
+.feed time{font-family:var(--f-mono);font-size:.72rem;color:var(--muted)}
+.lv{width:7px;height:7px;border-radius:50%;display:inline-block;transform:translateY(-1px)}
+.lv.info{background:var(--info)}.lv.warn{background:var(--warn)}.lv.crit{background:var(--crit)}.lv.ok{background:var(--ok)}
+
+/* forms */
+form .row{display:grid;gap:12px;grid-template-columns:repeat(2,minmax(0,1fr))}
+.field{display:grid;gap:4px;min-width:0}
+.field.full{grid-column:1/-1}
+label,.lbl-t{font-size:.78rem;font-weight:600;color:var(--ink)}
+input[type=text],input[type=password],input[type=number],select{font:inherit;font-size:.86rem;padding:7px 9px;border:1px solid var(--line-strong);border-radius:6px;background:var(--panel);color:var(--ink);width:100%;min-width:0}
+input[aria-invalid="true"],select[aria-invalid="true"]{border-color:var(--crit);background:var(--crit-bg)}
+.err{font-size:.74rem;color:var(--crit);min-height:0}
+.hint{font-size:.74rem;color:var(--muted)}
+.check{display:flex;align-items:center;gap:8px;font-size:.84rem}
+.form-acts{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;align-items:center}
+.form-acts .note{font-size:.8rem;color:var(--muted)}
+.cbtn{font:inherit;font-size:.84rem;font-weight:600;padding:7px 14px;border-radius:6px;border:1px solid var(--ink);background:var(--ink);color:var(--panel);cursor:pointer}
+.cbtn.ghost{background:transparent;color:var(--ink);border-color:var(--line-strong)}
+.cbtn:disabled{opacity:.5;cursor:wait}
+pre.payload{margin:0;font-family:var(--f-mono);font-size:.74rem;line-height:1.5;background:var(--surface);border:1px solid var(--line);border-radius:6px;padding:10px;overflow:auto;max-height:280px;white-space:pre}
+.endpoint{font-family:var(--f-mono);font-size:.74rem;color:var(--muted);margin-bottom:6px}
+.endpoint b{color:var(--ok);font-weight:500}
+
+.switch{position:relative;display:inline-block;width:36px;height:20px;flex:none}
+.switch input{opacity:0;width:0;height:0;position:absolute}
+.switch span{position:absolute;inset:0;background:var(--line-strong);border-radius:10px;cursor:pointer}
+.switch span::after{content:"";position:absolute;left:3px;top:3px;width:14px;height:14px;border-radius:50%;background:var(--panel)}
+.switch input:checked + span{background:var(--ok)}
+.switch input:checked + span::after{left:19px}
+.switch input:focus-visible + span{outline:2px solid var(--link);outline-offset:2px}
+
+.routes{display:grid;gap:10px}
+.route{display:grid;grid-template-columns:minmax(0,1fr) auto auto;gap:12px;align-items:center;border:1px solid var(--line);border-radius:var(--r);padding:10px 12px}
+.route .nm{font-weight:600}
+.route .meta{font-family:var(--f-mono);font-size:.72rem;color:var(--muted);overflow-wrap:anywhere}
+.route .rate{font-family:var(--f-mono);font-size:.85rem;text-align:right;font-variant-numeric:tabular-nums;min-width:84px}
+
+.alist{list-style:none;margin:0;padding:0;display:grid;gap:8px;max-height:430px;overflow:auto}
+.alist li{border:1px solid var(--line);border-left:4px solid var(--line-strong);border-radius:6px;padding:9px 11px;display:grid;gap:3px}
+.alist li.crit{border-left-color:var(--crit)}.alist li.warn{border-left-color:var(--warn)}.alist li.info{border-left-color:var(--info)}
+.alist li.unread{background:var(--surface)}
+.alist .t{display:flex;justify-content:space-between;gap:10px;font-weight:600;font-size:.85rem}
+.alist .t time{font-family:var(--f-mono);font-weight:400;font-size:.72rem;color:var(--muted);white-space:nowrap}
+.alist .b{font-size:.8rem;color:var(--muted)}
+.empty{font-size:.85rem;color:var(--muted);padding:14px;border:1px dashed var(--line-strong);border-radius:6px;text-align:center}
+.range{display:flex;align-items:center;gap:10px}
+.range input{flex:1;accent-color:var(--accent-line)}
+.range output{font-family:var(--f-mono);font-size:.8rem;min-width:52px;text-align:right}
+.chips{display:flex;gap:6px;flex-wrap:wrap}
+.chip{font-family:var(--f-mono);font-size:.72rem;border:1px solid var(--line-strong);border-radius:12px;padding:2px 4px 2px 9px;display:inline-flex;gap:4px;align-items:center}
+.chip button{border:0;background:transparent;color:var(--muted);cursor:pointer;font-size:.85rem;line-height:1;padding:0 4px}
+.sim-btns{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}
+.sim-btns button{font:inherit;font-size:.8rem;text-align:left;padding:9px 10px;border-radius:6px;border:1px dashed var(--line-strong);background:var(--surface);color:var(--ink);cursor:pointer}
+.sim-btns button:hover{border-style:solid}
+.sim-btns button small{display:block;color:var(--muted);font-size:.72rem}
+
+/* security */
+.signin{border:1px solid var(--line-strong);border-radius:10px;background:var(--surface);padding:18px;display:grid;gap:12px;align-content:start;min-height:330px}
+.signin .logo{font-family:var(--f-display);font-stretch:125%;font-weight:800;text-transform:uppercase;font-size:.85rem;letter-spacing:.06em}
+.msg{font-size:.82rem;padding:8px 10px;border-radius:6px}
+.msg.crit{background:var(--crit-bg);color:var(--crit)}
+.msg.info{background:var(--info-bg);color:var(--info)}
+.msg.ok{background:var(--ok-bg);color:var(--ok)}
+.msg.warn{background:var(--warn-bg);color:var(--warn)}
+.demo-cred{font-size:.75rem;color:var(--muted)}
+.demo-cred code{font-family:var(--f-mono);background:var(--panel);border:1px solid var(--line);padding:0 4px;border-radius:3px;color:var(--ink)}
+.authapp{display:flex;align-items:center;gap:12px;border:1px solid var(--line);border-radius:8px;padding:10px 12px;background:var(--panel)}
+.authapp .code{font-family:var(--f-mono);font-size:1.4rem;letter-spacing:.18em;font-variant-numeric:tabular-nums}
+.authapp .ring{width:30px;height:30px;flex:none}
+.authapp .ring circle{fill:none;stroke-width:4}
+.authapp .ring .bgc{stroke:var(--line)}
+.authapp .ring .fg{stroke:var(--s1);transform:rotate(-90deg);transform-origin:50% 50%}
+.authapp .who{font-size:.72rem;color:var(--muted)}
+.sess{display:grid;grid-template-columns:max-content 1fr;gap:4px 12px;font-size:.82rem}
+.sess dt{color:var(--muted)}
+.sess dd{margin:0;font-family:var(--f-mono);font-size:.78rem;overflow-wrap:anywhere}
+.timer{font-family:var(--f-mono);font-size:1.6rem;font-variant-numeric:tabular-nums}
+.timer.low{color:var(--crit)}
+.reqlog{list-style:none;margin:0;padding:0;font-family:var(--f-mono);font-size:.72rem;display:grid;gap:3px}
+.reqlog .c200{color:var(--ok)}.reqlog .c401{color:var(--crit)}
+.rules{list-style:none;margin:8px 0 0;padding:0;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:4px 14px;font-size:.8rem}
+.rules li{display:flex;gap:7px;align-items:baseline;color:var(--muted)}
+.rules li::before{content:"–";font-family:var(--f-mono);width:12px;flex:none;text-align:center}
+.rules li.pass{color:var(--ok)}.rules li.pass::before{content:"✓"}
+.rules li.fail{color:var(--crit)}.rules li.fail::before{content:"✕"}
+.strength{height:6px;border-radius:3px;background:var(--line);overflow:hidden;margin-top:8px}
+.strength i{display:block;height:100%;background:var(--crit);width:0}
+.audit-tools{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:8px}
+.audit-tools select,.audit-tools input{width:auto;min-width:0;flex:0 1 200px}
+td.detail{font-family:var(--f-mono);font-size:.7rem;color:var(--muted);max-width:280px;overflow-wrap:anywhere}
+
+.toasts{position:absolute;right:14px;bottom:14px;display:grid;gap:8px;z-index:5;max-width:min(340px,calc(100% - 28px));pointer-events:none}
+.toast{background:var(--ink);color:var(--panel);font-size:.82rem;padding:9px 12px;border-radius:6px;border-left:4px solid var(--accent);box-shadow:0 6px 18px rgba(0,0,0,.18)}
+.toast.crit{border-left-color:var(--crit)}.toast.ok{border-left-color:var(--ok)}
+
+.behind{margin-top:18px;display:grid;grid-template-columns:minmax(0,220px) minmax(0,1fr);gap:24px;padding:18px 20px;border:1.5px solid var(--ink);border-radius:8px;background:var(--surface)}
+.behind h3{font-size:1rem}
+.behind ul{margin:0;padding-left:18px;display:grid;gap:6px;font-size:.92rem}
+.disclaim{font-size:.8rem;color:var(--muted);margin-top:10px}
+
+/* case study */
+.role{display:grid;gap:10px;max-width:72ch}
+.facts{list-style:none;margin:0;padding:0;border-top:1.5px solid var(--ink)}
+.facts li{display:flex;justify-content:space-between;gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.92rem}
+.facts b{font-family:var(--f-mono);font-weight:500;font-variant-numeric:tabular-nums;white-space:nowrap}
+.diagram{margin-top:40px;border:1px solid var(--line);border-radius:10px;background:var(--panel);padding:16px;overflow-x:auto}
+.diagram svg{display:block;min-width:820px;width:100%;height:auto}
+.diagram .bx{fill:var(--surface);stroke:var(--line-strong);stroke-width:1.2}
+.diagram .own{fill:var(--accent-soft);stroke:var(--accent-line);stroke-width:1.8}
+.diagram .tt{fill:var(--ink);font-family:var(--f-body);font-size:13px;font-weight:600}
+.diagram .st{fill:var(--muted);font-family:var(--f-body);font-size:11px}
+.diagram .lab{fill:var(--muted);font-family:var(--f-mono);font-size:10px;letter-spacing:.08em}
+.diagram .ar{stroke:var(--line-strong);stroke-width:1.5;fill:none}
+.diagram .ar.ctl{stroke-dasharray:5 4}
+.diagram .ar.sse{stroke:var(--accent-line)}
+.diagram .ah{fill:var(--line-strong)}
+.diagram .ah2{fill:var(--accent-line)}
+.diagram .legend-t{fill:var(--ink);font-family:var(--f-body);font-size:11px}
+.decisions{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin-top:40px}
+.dec{border-top:1.5px solid var(--ink);padding-top:14px;display:grid;gap:8px;align-content:start}
+.dec .k{font-family:var(--f-mono);font-size:.7rem;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.dec p{font-size:.93rem}
+.dec p b{font-weight:600}
+.env{margin-top:48px}
+.envt{min-width:640px;font-size:.9rem}
+.envt td:first-child{font-weight:600;white-space:nowrap}
+.envt th:nth-child(2),.envt th:nth-child(3){width:40%}
+.sec-grid{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:40px;margin-top:40px}
+.controls{list-style:none;margin:0;padding:0;display:grid;gap:0}
+.controls li{display:grid;grid-template-columns:150px minmax(0,1fr);gap:12px;padding:9px 0;border-bottom:1px solid var(--line);font-size:.9rem}
+.controls li span:first-child{font-weight:600}
+.certs{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px}
+.cert{border:1.5px solid var(--ink);border-radius:6px;padding:8px 12px;display:grid;gap:0}
+.cert b{font-family:var(--f-display);font-stretch:125%;font-weight:800;letter-spacing:.04em}
+.cert span{font-size:.75rem;color:var(--muted)}
+
+.projects{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px}
+.proj{border:1px solid var(--line-strong);border-radius:10px;padding:20px;background:var(--surface);display:grid;gap:10px;align-content:start}
+.proj ul{margin:0;padding-left:18px;font-size:.92rem;display:grid;gap:4px}
+.stack{display:flex;gap:6px;flex-wrap:wrap}
+.stack span{font-family:var(--f-mono);font-size:.72rem;border:1px solid var(--line-strong);border-radius:4px;padding:1px 7px;color:var(--muted)}
+.skills{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:24px 32px}
+.skills div{border-top:1.5px solid var(--ink);padding-top:10px}
+.skills h3{font-size:.95rem;margin-bottom:6px}
+.skills p{font-size:.9rem;color:var(--muted)}
+.about{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:32px}
+.about h3{font-size:.95rem;margin-bottom:8px}
+.about ul{list-style:none;padding:0;margin:0;display:grid;gap:10px;font-size:.92rem}
+.about li span{display:block;color:var(--muted);font-size:.82rem}
+.contact{display:flex;gap:10px;align-items:center;flex-wrap:wrap;margin-top:6px}
+.contact .addr{font-family:var(--f-mono);font-size:.9rem;user-select:all;border:1px solid var(--line-strong);border-radius:6px;padding:6px 10px;background:var(--panel)}
+footer{border-top:1px solid var(--line);padding-block:24px;color:var(--muted);font-size:.8rem}
+
+@media (max-width:980px){
+  .g4{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .g-main{grid-template-columns:minmax(0,1fr)}
+}
+@media (max-width:860px){
+  .hero .wrap,.role,.sec-grid{grid-template-columns:minmax(0,1fr);gap:28px}
+  .console{grid-template-columns:minmax(0,1fr)}
+  .c-nav{flex-direction:row;overflow-x:auto;border-right:0;border-bottom:1px solid var(--line)}
+  .c-nav button[aria-selected="true"]{box-shadow:inset 0 -3px 0 var(--accent-line)}
+  .behind{grid-template-columns:minmax(0,1fr);gap:10px}
+  .decisions,.projects,.about{grid-template-columns:minmax(0,1fr)}
+  .skills{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:560px){
+  .g4,.g2,form .row,.rules,.sim-btns,.skills{grid-template-columns:minmax(0,1fr)}
+  .c-main{padding:12px}
+  .controls li{grid-template-columns:minmax(0,1fr);gap:2px}
+  .route{grid-template-columns:minmax(0,1fr) auto}
+  .route .rate{grid-column:1/2;text-align:left}
+}
+@media (prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important}}
+</style>
+
+<header class="topnav">
+  <div class="wrap">
+    <div class="brand">Tamyra Siby</div>
+    <nav aria-label="Sections">
+      <a href="#console">Console demo</a>
+      <a href="#case">Case study</a>
+      <a href="#projects">Projects</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <div>
+      <div class="eyebrow">Full-stack software engineer · Kotlin · Vue</div>
+      <h1>I build the <span class="mark">real-time web layer</span> of industrial edge systems.</h1>
+      <p class="lead">At NAONWORKS in Seoul, I owned the web console of an edge computing platform for factory data, from the Kotlin backend to the Vue frontend. I took it from offline on-premise sites to the cloud, and through CSAP, KSEL and GS certification.</p>
+      <div class="cta">
+        <a class="btn primary" href="#console">Try the console</a>
+        <a class="btn" href="#case">Read the case study</a>
+      </div>
+    </div>
+    <div class="plate" aria-label="Profile summary">
+      <div class="plate-title"><span>Engineer spec</span><span class="mono" style="font-weight:500;font-stretch:100%;letter-spacing:.04em">FULL-STACK</span></div>
+      <dl>
+        <dt>Service</dt><dd>Jul 2022 – Mar 2026 · NAONWORKS, Seoul</dd>
+        <dt>Backend</dt><dd>Kotlin · Spring WebFlux · Coroutines · R2DBC · jOOQ</dd>
+        <dt>Frontend</dt><dd>Vue 3 · TypeScript · Quasar · Pinia · Chart.js</dd>
+        <dt>Realtime</dt><dd>SSE · MQTT · REST</dd>
+        <dt>Infra</dt><dd>Docker · Linux · Gradle · MariaDB</dd>
+        <dt>Deploys</dt><dd>On-premise (offline) · Cloud</dd>
+        <dt>Certified</dt><dd>CSAP · KSEL · GS (TTA)</dd>
+        <dt>Languages</dt><dd>English (IELTS 8.5) · Korean (TOPIK 5) · Indonesian</dd>
+      </dl>
+      <p class="foot">B.Eng. Mobile System Engineering, Dankook University · M.M. Finance, Universitas Klabat (in progress)</p>
+      <div class="screws" aria-hidden="true"><i></i><i></i></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="console">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Interactive demo</div>
+      <h2>Try the edge console</h2>
+      <p>The product is confidential, so I rebuilt its key behaviours as a simulation with sample data. Stop a service, add a device, trip an alarm, or try to break the sign-in.</p>
+    </div>
+
+    <div class="console" id="con">
+      <div class="c-bar">
+        <span class="dev">edge-01 · Plant A / Line 3</span>
+        <span class="sim">Simulation</span>
+        <span class="grow"></span>
+        <span class="live" title="Server-Sent Events stream"><i></i>SSE live · <span id="clk" class="num">--:--:--</span></span>
+        <button class="bell" id="bell" type="button" aria-label="Open alarms">
+          <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 16V11a6 6 0 0 1 12 0v5l1.5 2h-15z"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+          <span class="count" id="bellCount">0</span>
+        </button>
+        <span class="userchip">admin</span>
+      </div>
+      <div class="c-nav" role="tablist" aria-label="Console screens">
+        <button role="tab" id="tab-dashboard" aria-selected="true" aria-controls="p-dashboard" data-tab="dashboard">Dashboard</button>
+        <button role="tab" id="tab-devices" aria-selected="false" aria-controls="p-devices" data-tab="devices">Devices <span class="badge" id="devCount"></span></button>
+        <button role="tab" id="tab-routes" aria-selected="false" aria-controls="p-routes" data-tab="routes">Data routes</button>
+        <button role="tab" id="tab-alerts" aria-selected="false" aria-controls="p-alerts" data-tab="alerts">Alarms <span class="badge" id="alCount"></span></button>
+        <button role="tab" id="tab-security" aria-selected="false" aria-controls="p-security" data-tab="security">Sign-in &amp; audit</button>
+      </div>
+
+      <div class="c-main">
+        <!-- DASHBOARD -->
+        <div role="tabpanel" id="p-dashboard" aria-labelledby="tab-dashboard" data-panel="dashboard">
+          <div class="grid g4" id="kpis"></div>
+          <div class="grid g-main" style="margin-top:14px">
+            <div class="box">
+              <h3>Pipeline throughput <span class="hint" style="font-weight:400">· hover the chart</span></h3>
+              <ul class="cj-legend row" id="thrLegend"></ul>
+              <div class="cj-canvas"><canvas id="thrChart" aria-label="Messages per second over the last 60 seconds" role="img"></canvas></div>
+            </div>
+            <div class="box">
+              <h3>Live events</h3>
+              <ul class="feed" id="feed"></ul>
+            </div>
+          </div>
+          <div class="grid g-main" style="margin-top:14px">
+            <div class="box">
+              <div class="cj-head">
+                <h3 style="margin:0">Network traffic</h3>
+                <button class="mini" type="button" id="trfDetails" aria-pressed="false">Show details</button>
+              </div>
+              <div class="cj">
+                <div class="cj-canvas"><canvas id="trfChart" aria-label="Network traffic per interface over the last 60 seconds" role="img"></canvas></div>
+                <ul class="cj-legend side" id="trfLegend"></ul>
+              </div>
+              <p class="hint" style="margin-top:6px">Hover for a per-interface table. Click a legend entry to hide it.</p>
+            </div>
+            <div class="box">
+              <h3>Messages by protocol</h3>
+              <div class="cj-canvas donut"><canvas id="protoChart" aria-label="Share of collected messages by protocol" role="img"></canvas></div>
+              <ul class="cj-legend row" id="protoLegend" style="margin-top:8px"></ul>
+            </div>
+          </div>
+          <div class="box" style="margin-top:14px">
+            <h3>Services <span class="hint" style="font-weight:400">· Docker containers on this device</span></h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>Service</th><th>Image</th><th>Status</th><th>Uptime</th><th>Actions</th></tr></thead>
+              <tbody id="svcBody"></tbody>
+            </table></div>
+          </div>
+        </div>
+
+        <!-- DEVICES -->
+        <div role="tabpanel" id="p-devices" aria-labelledby="tab-devices" data-panel="devices" hidden>
+          <div class="box">
+            <h3>Connected devices</h3>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>Name</th><th>Protocol</th><th>Endpoint</th><th>Tags</th><th>Poll</th><th>Status</th><th></th></tr></thead>
+              <tbody id="devBody"></tbody>
+            </table></div>
+          </div>
+          <div class="grid g-main" style="margin-top:14px">
+            <form class="box" id="devForm" novalidate>
+              <h3>Add a device</h3>
+              <div class="row">
+                <div class="field">
+                  <label for="dev-name">Device name</label>
+                  <input type="text" id="dev-name" placeholder="press-line-4" aria-describedby="dev-name-err" autocomplete="off">
+                  <div class="err" id="dev-name-err"></div>
+                </div>
+                <div class="field">
+                  <label for="dev-proto">Protocol</label>
+                  <select id="dev-proto"></select>
+                </div>
+              </div>
+              <div class="row" id="devFields" style="margin-top:12px"></div>
+              <div class="form-acts">
+                <button class="cbtn" type="submit">Add device</button>
+                <button class="cbtn ghost" type="button" id="devReset">Reset</button>
+                <span class="note" id="devNote"></span>
+              </div>
+            </form>
+            <div class="box flat">
+              <div class="c-sub">Request preview</div>
+              <div class="endpoint"><b>POST</b> /api/sys/drivers</div>
+              <pre class="payload" id="devPayload"></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- ROUTES -->
+        <div role="tabpanel" id="p-routes" aria-labelledby="tab-routes" data-panel="routes" hidden>
+          <div class="box">
+            <h3>Where the data goes</h3>
+            <div class="routes" id="routeList"></div>
+          </div>
+          <div class="grid g-main" style="margin-top:14px">
+            <form class="box" id="rtForm" novalidate>
+              <h3>Add a route</h3>
+              <div class="row">
+                <div class="field">
+                  <label for="rt-name">Route name</label>
+                  <input type="text" id="rt-name" placeholder="line3-to-lake" aria-describedby="rt-name-err" autocomplete="off">
+                  <div class="err" id="rt-name-err"></div>
+                </div>
+                <div class="field">
+                  <label for="rt-src">Source device</label>
+                  <select id="rt-src"></select>
+                </div>
+                <div class="field full">
+                  <label for="rt-sink">Destination</label>
+                  <select id="rt-sink"></select>
+                </div>
+              </div>
+              <div class="row" id="rtFields" style="margin-top:12px"></div>
+              <div class="form-acts">
+                <button class="cbtn ghost" type="button" id="rtTest">Test connection</button>
+                <button class="cbtn" type="submit">Save route</button>
+                <span class="note" id="rtNote" role="status"></span>
+              </div>
+            </form>
+            <div class="box flat">
+              <div class="c-sub">Request preview · secrets masked</div>
+              <div class="endpoint"><b>POST</b> /api/sys/store/instances</div>
+              <pre class="payload" id="rtPayload"></pre>
+            </div>
+          </div>
+        </div>
+
+        <!-- ALERTS -->
+        <div role="tabpanel" id="p-alerts" aria-labelledby="tab-alerts" data-panel="alerts" hidden>
+          <div class="grid g2">
+            <div class="grid" style="align-content:start">
+              <form class="box" id="thForm" novalidate>
+                <h3>Thresholds</h3>
+                <div class="field">
+                  <label for="th-cpu">CPU usage</label>
+                  <div class="range"><input type="range" id="th-cpu" min="50" max="100" step="5" value="85"><output for="th-cpu" id="th-cpu-o">85 %</output></div>
+                </div>
+                <div class="field" style="margin-top:8px">
+                  <label for="th-mem">Memory usage</label>
+                  <div class="range"><input type="range" id="th-mem" min="50" max="100" step="5" value="90"><output for="th-mem" id="th-mem-o">90 %</output></div>
+                </div>
+                <div class="field" style="margin-top:8px">
+                  <label for="th-db">Log database limit</label>
+                  <div class="range"><input type="range" id="th-db" min="5" max="50" step="1" value="10"><output for="th-db" id="th-db-o">10 GB</output></div>
+                  <div class="hint">Now using <span id="dbNow" class="mono">6.4 GB</span>. Older logs are cleaned up when the limit is passed.</div>
+                </div>
+                <label class="check" style="margin-top:12px"><input type="checkbox" id="th-mail" checked> Email administrators about warnings and critical alarms</label>
+                <div class="chips" id="mailChips" style="margin-top:8px"></div>
+                <div class="row" style="margin-top:8px;grid-template-columns:minmax(0,1fr) auto;align-items:start">
+                  <div class="field"><input type="text" id="mailAdd" placeholder="name@plant.example" aria-label="Add recipient" aria-describedby="mailAdd-err"><div class="err" id="mailAdd-err"></div></div>
+                  <button class="cbtn ghost" type="button" id="mailAddBtn">Add</button>
+                </div>
+                <div class="form-acts"><button class="cbtn" type="submit">Save thresholds</button></div>
+              </form>
+              <div class="box">
+                <h3>Make something happen</h3>
+                <div class="sim-btns">
+                  <button type="button" data-sim="cpu">CPU spike<small>Load jumps to 95 % for 8 s</small></button>
+                  <button type="button" data-sim="svc">Service crash<small>CEP engine stops</small></button>
+                  <button type="button" data-sim="integrity">Tampered file<small>Config hash mismatch</small></button>
+                  <button type="button" data-sim="db">Log DB fills up<small>Triggers cleanup</small></button>
+                </div>
+              </div>
+            </div>
+            <div class="grid" style="align-content:start">
+              <div class="box">
+                <div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap;margin-bottom:10px">
+                  <h3 style="margin:0">Notifications</h3>
+                  <div class="acts">
+                    <select id="alFilter" aria-label="Filter notifications" style="width:auto;padding:3px 6px;font-size:.78rem"><option value="all">All</option><option value="unread">Unread</option></select>
+                    <button class="mini" type="button" id="alReadAll">Mark all read</button>
+                    <button class="mini" type="button" id="alClear">Clear</button>
+                  </div>
+                </div>
+                <ul class="alist" id="alList"></ul>
+              </div>
+              <div class="box flat">
+                <h3>Email queue</h3>
+                <p style="font-size:.85rem"><span id="mqPending" class="mono">0</span> waiting · next send in <span id="mqNext" class="mono">10 s</span></p>
+                <p class="hint" id="mqLast">Nothing sent yet.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SECURITY -->
+        <div role="tabpanel" id="p-security" aria-labelledby="tab-security" data-panel="security" hidden>
+          <div class="grid g2">
+            <div>
+              <div class="c-sub">What operator1 sees</div>
+              <div class="signin" id="signin"></div>
+            </div>
+            <div class="grid" style="align-content:start">
+              <div class="c-sub" style="margin-bottom:-6px">What the admin sees</div>
+              <div class="box">
+                <h3>Sign-in policy</h3>
+                <div class="row" style="display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:10px">
+                  <div class="field"><label for="pol-limit">Lock after failed attempts</label>
+                    <select id="pol-limit"><option>1</option><option>2</option><option selected>3</option><option>4</option><option>5</option></select></div>
+                  <div class="field"><label for="pol-lock">Lock duration</label>
+                    <select id="pol-lock"><option value="5">5 min</option><option value="10">10 min</option><option value="15">15 min</option><option value="20">20 min</option><option value="30">30 min</option></select></div>
+                </div>
+                <div style="display:grid;gap:8px;margin-top:10px">
+                  <label class="check"><span class="switch"><input type="checkbox" id="pol-2fa" checked><span></span></span> Two-step verification (TOTP)</label>
+                  <label class="check"><span class="switch"><input type="checkbox" id="pol-dup" checked><span></span></span> Block duplicate sign-ins</label>
+                </div>
+              </div>
+              <div class="box">
+                <h3>Account: operator1</h3>
+                <div id="acctState"></div>
+              </div>
+              <div class="box">
+                <h3>Active sessions</h3>
+                <div class="tbl-wrap"><table>
+                  <thead><tr><th>User</th><th>Client</th><th>Since</th><th></th></tr></thead>
+                  <tbody id="sessBody"></tbody>
+                </table></div>
+              </div>
+            </div>
+          </div>
+
+          <div class="box" style="margin-top:14px">
+            <h3>Password rules</h3>
+            <div class="row" style="display:grid;grid-template-columns:minmax(0,1fr);gap:4px">
+              <label for="pw-try">Try a new password for operator1</label>
+              <input type="text" id="pw-try" placeholder="Type a password" autocomplete="off" spellcheck="false">
+            </div>
+            <div class="strength" aria-hidden="true"><i id="pwBar"></i></div>
+            <ul class="rules" id="pwRules"></ul>
+          </div>
+
+          <div class="box" style="margin-top:14px">
+            <h3>Audit log</h3>
+            <div class="audit-tools">
+              <select id="auFilter" aria-label="Log type"><option value="all">All logs</option><option value="Operation">Operation log</option><option value="System">System log</option></select>
+              <input type="text" id="auSearch" placeholder="Search user, event, IP" aria-label="Search audit log">
+            </div>
+            <div class="tbl-wrap"><table>
+              <thead><tr><th>Time</th><th>Log</th><th>User</th><th>Event</th><th>Action</th><th>IP</th><th>Result</th><th>Detail</th></tr></thead>
+              <tbody id="auBody"></tbody>
+            </table></div>
+          </div>
+        </div>
+      </div>
+      <div class="toasts" id="toasts" aria-live="polite"></div>
+    </div>
+
+    <div class="behind">
+      <h3 id="behindTitle">Behind the dashboard</h3>
+      <ul id="behindList"></ul>
+    </div>
+    <p class="disclaim">Built from scratch. No proprietary code, data or screens.</p>
+  </div>
+</section>
+
+<section class="block" id="case">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Case study · NAONWORKS · 2022–2026</div>
+      <h2>Edge Computing Platform</h2>
+      <p>Factory machines speak dozens of protocols. The platform collects their data on site and routes it to databases and clouds. I owned its web console.</p>
+    </div>
+
+    <div class="role">
+      <h3>My role</h3>
+      <p>I took over the web backend and frontend from the original architect, then maintained and extended nearly every module. I built most of the Vue frontend, with a junior developer contributing.</p>
+      <p>The product began on offline factory networks, so authentication, user management and logging had to be built in. Certification audits require them, and much of that work was mine. I then helped move the product to the cloud.</p>
+      <p>I also ran the team's day-to-day workflow, onboarded new members, led customer demos in English and Indonesian, and started the Node-RED Manager feature.</p>
+    </div>
+
+    <figure class="diagram" style="margin-inline:0">
+      <svg viewBox="0 0 960 372" role="img" aria-labelledby="dgT">
+        <title id="dgT">System architecture: data plane from field devices to cloud, control plane from web console to backend</title>
+        <defs>
+          <marker id="ah" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah" d="M0,0 L10,5 L0,10 z"/></marker>
+          <marker id="ah2" viewBox="0 0 10 10" refX="9" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path class="ah2" d="M0,0 L10,5 L0,10 z"/></marker>
+        </defs>
+        <text class="lab" x="20" y="16">DATA PLANE</text>
+        <rect class="bx" x="20" y="40" width="150" height="70" rx="6"/>
+        <text class="tt" x="34" y="68">Field devices</text><text class="st" x="34" y="88">PLCs · sensors · meters</text>
+        <rect class="bx" x="210" y="40" width="160" height="70" rx="6"/>
+        <text class="tt" x="224" y="68">Driver runtime</text><text class="st" x="224" y="88">40 industrial protocols</text>
+        <rect class="bx" x="410" y="40" width="150" height="70" rx="6"/>
+        <text class="tt" x="424" y="68">Message bus</text><text class="st" x="424" y="88">MQTT · AMQP</text>
+        <rect class="bx" x="600" y="22" width="150" height="50" rx="6"/>
+        <text class="tt" x="614" y="43">CEP rules</text><text class="st" x="614" y="60">events · conditions</text>
+        <rect class="bx" x="600" y="82" width="150" height="50" rx="6"/>
+        <text class="tt" x="614" y="103">Packet parser</text><text class="st" x="614" y="120">raw frames → fields</text>
+        <rect class="bx" x="790" y="40" width="150" height="70" rx="6"/>
+        <text class="tt" x="804" y="68">Store forwarder</text><text class="st" x="804" y="88">batch · retry · route</text>
+        <text class="st" x="790" y="134">Kafka · InfluxDB · MongoDB</text>
+        <text class="st" x="790" y="150">SQL · AMQP · AWS · Azure</text>
+        <path class="ar" d="M170,75 H206" marker-end="url(#ah)"/>
+        <path class="ar" d="M370,75 H406" marker-end="url(#ah)"/>
+        <path class="ar" d="M560,75 L596,49" marker-end="url(#ah)"/>
+        <path class="ar" d="M560,75 L596,105" marker-end="url(#ah)"/>
+        <path class="ar" d="M750,47 L786,70" marker-end="url(#ah)"/>
+        <path class="ar" d="M750,107 L786,82" marker-end="url(#ah)"/>
+
+        <text class="lab" x="20" y="206">CONTROL PLANE</text>
+        <rect class="own" x="20" y="232" width="210" height="84" rx="6"/>
+        <text class="tt" x="34" y="262">Web console</text><text class="st" x="34" y="282">Vue 3 · TypeScript · Quasar</text><text class="st" x="34" y="299">Pinia · Chart.js · i18n KO/EN</text>
+        <rect class="own" x="330" y="232" width="240" height="84" rx="6"/>
+        <text class="tt" x="344" y="262">Web API</text><text class="st" x="344" y="282">Kotlin · Spring Boot WebFlux</text><text class="st" x="344" y="299">Coroutines · Security · JWT</text>
+        <path class="ar" d="M230,256 H326" marker-end="url(#ah)"/>
+        <text class="st" x="262" y="249">REST</text>
+        <path class="ar sse" d="M330,292 H234" marker-end="url(#ah2)"/>
+        <text class="st" x="266" y="310">SSE</text>
+        <path class="ar ctl" d="M470,232 L486,114" marker-end="url(#ah)"/>
+        <path class="ar ctl" d="M400,232 L300,114" marker-end="url(#ah)"/>
+        <text class="st" x="486" y="176">configure + monitor</text>
+        <text class="st" x="486" y="191">every component</text>
+        <rect class="bx" x="690" y="214" width="250" height="34" rx="6"/>
+        <text class="tt" x="704" y="236" style="font-size:12px">MariaDB <tspan class="st">via R2DBC + jOOQ</tspan></text>
+        <rect class="bx" x="690" y="256" width="250" height="34" rx="6"/>
+        <text class="tt" x="704" y="278" style="font-size:12px">Docker Engine <tspan class="st">container control</tspan></text>
+        <rect class="bx" x="690" y="298" width="250" height="34" rx="6"/>
+        <text class="tt" x="704" y="320" style="font-size:12px">Linux host <tspan class="st">netplan · NTP · systemd</tspan></text>
+        <path class="ar" d="M570,262 L686,231" marker-end="url(#ah)"/>
+        <path class="ar" d="M570,274 H686" marker-end="url(#ah)"/>
+        <path class="ar" d="M570,286 L686,315" marker-end="url(#ah)"/>
+        <rect class="own" x="20" y="346" width="14" height="14" rx="3"/>
+        <text class="legend-t" x="42" y="357">The parts I owned and built</text>
+      </svg>
+    </figure>
+
+    <div class="decisions">
+      <div class="dec">
+        <div class="k">Performance on small hardware</div>
+        <h3>Non-blocking end to end</h3>
+        <p>Edge hardware has little memory to spare. Spring WebFlux, Kotlin coroutines and R2DBC keep every call non-blocking, and BlockHound catches regressions in tests. The service runs on a 192 MB heap.</p>
+      </div>
+      <div class="dec">
+        <div class="k">Real-time UX</div>
+        <h3>One event stream, many screens</h3>
+        <p>Dashboards, alarms and session events share one SSE channel. Each screen subscribes only to what it shows, and a force-logout reaches the browser instantly. I extended Chart.js with custom tooltip, legend and center-text plugins for dense traffic data.</p>
+      </div>
+      <div class="dec">
+        <div class="k">Frontend at scale</div>
+        <h3>Forms as data</h3>
+        <p>40 protocols and 10 destinations each need a validated form in Korean and English. Forms are generated from typed schemas, and the same rules run on the API, so adding a protocol is a data change.</p>
+      </div>
+      <div class="dec">
+        <div class="k">Device management</div>
+        <h3>The OS, from the browser</h3>
+        <p>Operators configure networking, time sync and services through Kotlin wrappers around netplan, ip and systemctl, and manage containers through the Docker Engine API.</p>
+      </div>
+    </div>
+
+    <div class="env">
+      <div class="sec-head" style="margin-bottom:16px">
+        <div class="eyebrow">On-premise → cloud</div>
+        <h3 style="font-size:1.4rem">What each environment requires</h3>
+        <p>Moving from offline sites to the cloud meant deciding what to build in and what to hand to managed services. I also containerized the web service for the migration.</p>
+      </div>
+      <div class="tbl-wrap">
+        <table class="envt">
+          <thead><tr><th>Concern</th><th>On-premise, no internet</th><th>Cloud</th></tr></thead>
+          <tbody>
+            <tr><td>Identity</td><td>Built in: accounts, 2FA, lockout, alerts</td><td>Same controls, audited for CSAP</td></tr>
+            <tr><td>Packaging</td><td>Installed directly on the device</td><td>Container image</td></tr>
+            <tr><td>Transport security</td><td>App serves HTTPS</td><td>TLS ends at the load balancer</td></tr>
+            <tr><td>Secrets</td><td>Encrypted on the device</td><td>External key management service</td></tr>
+            <tr><td>Sessions</td><td>In-memory token store on one node</td><td>Shared store or sticky routing</td></tr>
+            <tr><td>Data</td><td>One local database with capacity alarms</td><td>Replication and failover</td></tr>
+            <tr><td>Audit logs</td><td>Local, view-only for admins</td><td>Durable central storage</td></tr>
+            <tr><td>Integrity</td><td>File-hash checks</td><td>Image digests</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="sec-grid">
+      <div>
+        <div class="eyebrow">Security &amp; certification</div>
+        <h3 style="font-size:1.4rem;margin-top:8px">Built to pass government security review</h3>
+        <p style="margin-top:12px">I supported testing for all three programs and wrote the compliance map: which screen, API and class meets each requirement, plus the remaining gaps and fixes.</p>
+        <div class="certs">
+          <div class="cert"><b>CSAP</b><span>Cloud Security Assurance Program</span></div>
+          <div class="cert"><b>KSEL</b><span>Security evaluation compliance</span></div>
+          <div class="cert"><b>GS</b><span>Good Software certification, TTA</span></div>
+        </div>
+      </div>
+      <ul class="controls" aria-label="Security controls">
+        <li><span>Sessions</span><span>Signed JWT in a server-side store, bound to IP and browser, rotated on refresh.</span></li>
+        <li><span>Sign-in</span><span>Optional TOTP 2FA, generic error messages, duplicate sign-in control.</span></li>
+        <li><span>Lockout</span><span>Configurable limit and duration, with email to admins.</span></li>
+        <li><span>Passwords</span><span>Complexity rules, blocked patterns, forced change on first sign-in.</span></li>
+        <li><span>First run</span><span>No default admin password.</span></li>
+        <li><span>Access</span><span>Roles and per-user IP allow-lists.</span></li>
+        <li><span>Audit</span><span>40+ event types, sensitive fields masked, searchable.</span></li>
+        <li><span>Integrity</span><span>Periodic file-hash checks with alarms.</span></li>
+        <li><span>Data</span><span>Secrets encrypted at rest, TLS in transit.</span></li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="projects">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Also at NAONWORKS</div>
+      <h2>Smart-road projects</h2>
+      <p>The same stack applied to roadside traffic infrastructure for public-sector clients.</p>
+    </div>
+    <div class="projects">
+      <article class="proj">
+        <h3>Integrated Gateway for Traffic Devices</h3>
+        <ul>
+          <li>Backend linking roadside devices to cloud services.</li>
+          <li>Reliable MQTT flows and modular gateway management.</li>
+        </ul>
+        <div class="stack"><span>Kotlin</span><span>Spring Boot</span><span>MQTT</span><span>Docker</span></div>
+      </article>
+      <article class="proj">
+        <h3>Integrated Monitoring System for Traffic Devices</h3>
+        <ul>
+          <li>Central monitoring for IoT gateways and traffic devices.</li>
+          <li>Region-based access control for government operators.</li>
+          <li>Real-time Vue dashboards and device control.</li>
+        </ul>
+        <div class="stack"><span>Kotlin</span><span>Spring Boot</span><span>MariaDB</span><span>Vue</span><span>MQTT</span></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="skills">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="eyebrow">Toolbox</div>
+      <h2>Skills</h2>
+    </div>
+    <div class="skills">
+      <div><h3>Backend</h3><p>Kotlin, Spring Boot 3, WebFlux, Coroutines, Spring Security, R2DBC, JWT; MariaDB, PostgreSQL, InfluxDB, MongoDB</p></div>
+      <div><h3>Frontend</h3><p>Vue 3, TypeScript, Quasar, Pinia, vue-i18n, Chart.js, Vite</p></div>
+      <div><h3>Real-time &amp; integration</h3><p>Server-Sent Events, MQTT, AMQP, Kafka, REST/OpenAPI, Modbus, OPC UA, S7</p></div>
+      <div><h3>Infrastructure</h3><p>On-premise and cloud deployment, Docker, Linux, Git, AWS</p></div>
+      <div><h3>Security &amp; quality</h3><p>Authentication and session design, 2FA, audit logging, CSAP/GS compliance, JUnit 5, BlockHound</p></div>
+      <div><h3>Coding with AI</h3><p>AI coding assistants for prototyping, refactoring, writing tests and code review</p></div>
+    </div>
+  </div>
+</section>
+
+<section class="block" id="contact">
+  <div class="wrap">
+    <div class="about">
+      <div>
+        <h3>Education</h3>
+        <ul>
+          <li>Magister Manajemen, Finance<span>Universitas Klabat · 2025 – present · GPA 4.00/4.00</span></li>
+          <li>B.Eng. Mobile System Engineering<span>Dankook University, Korea · 2018 – 2022 · 4.13/4.5, graduated with honors · Global Talent Scholarship</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Languages</h3>
+        <ul>
+          <li>English<span>IELTS 8.5 (2026) · TOEIC 990 (2024)</span></li>
+          <li>Korean<span>TOPIK level 5 (2024) · four years of work in Korean</span></li>
+          <li>Indonesian<span>Native</span></li>
+        </ul>
+      </div>
+      <div>
+        <h3>Contact</h3>
+        <p style="font-size:.92rem">Available for freelance projects and remote full-stack roles.</p>
+        <div class="contact">
+          <span class="addr" id="addr">tamyra.debora.siby@gmail.com</span>
+          <button class="btn" type="button" id="copyAddr" style="padding:6px 12px">Copy</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">Tamyra Siby · The console demo uses sample data only.</div>
+</footer>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/4.4.1/chart.umd.min.js"></script>
+<script>
+(() => {
+'use strict';
+const $ = (s, r = document) => r.querySelector(s);
+const $$ = (s, r = document) => [...r.querySelectorAll(s)];
+const esc = s => String(s).replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+const pad = n => String(n).padStart(2, '0');
+const now = () => Date.now();
+const clock = (d = new Date()) => `${pad(d.getHours())}:${pad(d.getMinutes())}:${pad(d.getSeconds())}`;
+const mmss = s => `${pad(Math.floor(s / 60))}:${pad(s % 60)}`;
+const rnd = (a, b) => a + Math.random() * (b - a);
+const clamp = (v, a, b) => Math.max(a, Math.min(b, v));
+const dur = s => { s = Math.floor(s); const d = Math.floor(s / 86400), h = Math.floor(s % 86400 / 3600), m = Math.floor(s % 3600 / 60); return d ? `${d}d ${h}h` : h ? `${h}h ${m}m` : `${m}m ${s % 60}s`; };
+
+/* ---------- state ---------- */
+const N = 60;
+const M = { cpu: [], mem: [], disk: [], net: [], tin: [], tcep: [], tout: [], ts: [] };
+const IFACES = [
+  { name: 'eth0', dash: [], base: { txBytes: 9.0e5, txPackets: 1100, rxBytes: 2.4e6, rxPackets: 1900 } },
+  { name: 'eth1', dash: [5, 4], base: { txBytes: 6.0e4, txPackets: 160, rxBytes: 3.5e5, rxPackets: 420 } },
+];
+const TRF_ORDER = ['txBytes', 'txPackets', 'rxBytes', 'rxPackets'];
+const TRF = {}, TRF_CUR = {};
+IFACES.forEach(f => TRF_ORDER.forEach(m => { TRF[`${f.name}.${m}`] = []; TRF_CUR[`${f.name}.${m}`] = f.base[m]; }));
+let seedT = Date.now() - 60 * 1000;
+const cur = { cpu: 34, mem: 58, disk: 41.2, net: 18.5, tin: 1240 };
+const S = {
+  tab: 'dashboard', spikeUntil: 0, dbGB: 6.4, mailOn: true,
+  th: { cpu: 85, mem: 90, db: 10 },
+  recipients: ['ops-lead@plant.example', 'maint@plant.example'],
+  lastAlarm: {}, events: [], alerts: [], mailQueue: [], mailTick: 10, audit: [],
+  services: [
+    { name: 'driver-runtime', image: 'edge/driver:3.8.2', status: 'running', up: 1036800 },
+    { name: 'mqtt-broker', image: 'eclipse-mosquitto:2.0.18', status: 'running', up: 1036790 },
+    { name: 'cep-engine', image: 'edge/cep:2.4.0', status: 'running', up: 604000 },
+    { name: 'store-forwarder', image: 'edge/store:2.6.1', status: 'running', up: 604010 },
+    { name: 'packet-parser', image: 'edge/parser:1.9.0', status: 'running', up: 290000 },
+    { name: 'node-red', image: 'nodered/node-red:3.1.9', status: 'running', up: 86000 },
+  ],
+  devices: [
+    { name: 'press-line-3', proto: 'modbus-tcp', ep: '10.20.3.11:502', tags: 48, poll: 500, status: 'ok' },
+    { name: 'packing-plc', proto: 's7', ep: '10.20.3.40:102', tags: 112, poll: 1000, status: 'ok' },
+    { name: 'boiler-room', proto: 'opcua', ep: 'opc.tcp://10.20.5.8:4840', tags: 36, poll: 1000, status: 'ok' },
+    { name: 'hvac-ahu-2', proto: 'bacnet', ep: '10.20.7.15:47808', tags: 24, poll: 5000, status: 'warn' },
+  ],
+  routes: [
+    { name: 'line3-telemetry', sink: 'kafka', src: 'press-line-3', meta: 'broker 10.30.0.5:9092 · topic plant.line3.telemetry', on: true, base: 640 },
+    { name: 'energy-hourly', sink: 'influx2', src: 'boiler-room', meta: 'bucket energy · org plant-a', on: true, base: 36 },
+    { name: 'alarms-cloud', sink: 'azure', src: 'packing-plc', meta: 'hub plant-a-alarms', on: true, base: 9 },
+    { name: 'quality-archive', sink: 'sql', src: 'packing-plc', meta: 'MariaDB · qa.measurements', on: false, base: 120 },
+  ],
+};
+const svc = n => S.services.find(s => s.name === n);
+
+/* seed history */
+for (let i = 0; i < N; i++) stepMetrics(true);
+
+function push(a, v) { a.push(v); if (a.length > N) a.shift(); }
+function stepMetrics(seed) {
+  const spike = !seed && now() < S.spikeUntil;
+  cur.cpu = spike ? rnd(91, 97) : clamp(cur.cpu + rnd(-4, 4) + (35 - cur.cpu) * 0.12, 12, 70);
+  cur.mem = clamp(cur.mem + rnd(-0.6, 0.6) + (58 - cur.mem) * 0.05, 40, 80);
+  cur.disk = clamp(cur.disk + rnd(0, 0.004), 0, 100);
+  cur.net = clamp(cur.net + rnd(-2, 2) + (18 - cur.net) * 0.1, 2, 60);
+  cur.tin = clamp(cur.tin + rnd(-60, 60) + (1240 - cur.tin) * 0.1, 900, 1600);
+  const up = n => seed || svc(n).status === 'running';
+  const tin = up('driver-runtime') && up('mqtt-broker') ? cur.tin : 0;
+  const tcep = up('cep-engine') ? tin * rnd(0.93, 0.97) : 0;
+  const tout = up('store-forwarder') ? tin * rnd(0.55, 0.62) : 0;
+  push(M.cpu, cur.cpu); push(M.mem, cur.mem); push(M.disk, cur.disk); push(M.net, cur.net);
+  push(M.tin, tin); push(M.tcep, tcep); push(M.tout, tout);
+  push(M.ts, seed ? (seedT += 1000) : now());
+  // per-interface traffic; ~4% of samples go missing, like a late SSE frame, and the chart spans the gap
+  IFACES.forEach(f => {
+    const missed = Math.random() < 0.04;
+    TRF_ORDER.forEach(m => {
+      const k = `${f.name}.${m}`, b = f.base[m] * (spike && m.startsWith('tx') ? 1.8 : 1);
+      TRF_CUR[k] = clamp(TRF_CUR[k] + rnd(-0.08, 0.08) * b + (b - TRF_CUR[k]) * 0.15, b * 0.4, b * 2.2);
+      push(TRF[k], missed ? null : Math.round(TRF_CUR[k]));
+    });
+  });
+}
+
+/* ---------- toasts / events / alerts / audit ---------- */
+function toast(msg, level = '') {
+  const el = document.createElement('div');
+  el.className = 'toast ' + level; el.textContent = msg;
+  $('#toasts').appendChild(el);
+  setTimeout(() => el.remove(), 3600);
+}
+function event(level, text) {
+  S.events.unshift({ t: clock(), level, text });
+  S.events.length = Math.min(S.events.length, 40);
+  if (S.tab === 'dashboard') renderFeed();
+}
+const SENSITIVE = ['password', 'passwd', 'token', 'secret', 'saskey', 'otp'];
+function mask(o) {
+  if (!o || typeof o !== 'object') return o;
+  const r = Array.isArray(o) ? [] : {};
+  for (const [k, v] of Object.entries(o)) r[k] = SENSITIVE.some(s => k.toLowerCase().includes(s)) ? '****' : (v && typeof v === 'object' ? mask(v) : v);
+  return r;
+}
+function audit(log, user, ev, action, ip, result, detail) {
+  S.audit.unshift({ t: clock(), log, user, ev, action, ip, result, detail: detail ? JSON.stringify(mask(detail)) : '' });
+  S.audit.length = Math.min(S.audit.length, 120);
+  if (S.tab === 'security') renderAudit();
+}
+function alarm(level, code, title, body) {
+  S.alerts.unshift({ id: Math.random().toString(36).slice(2), t: clock(), level, title, body, read: false });
+  event(level, title);
+  audit('System', 'system', 'ALARM', code, '-', level === 'info' ? 'INFO' : 'WARN', { message: title });
+  if (S.mailOn && level !== 'info') S.mailQueue.push(title);
+  toast(title, level === 'crit' ? 'crit' : '');
+  renderBell();
+  if (S.tab === 'alerts') renderAlerts();
+}
+
+/* ---------- top bar ---------- */
+function renderBell() {
+  const n = S.alerts.filter(a => !a.read).length;
+  const c = $('#bellCount'); c.textContent = n; c.toggleAttribute('data-zero', n === 0);
+  $('#bell').setAttribute('aria-label', `Open alarms, ${n} unread`);
+  $('#alCount').textContent = n ? n : '';
+  $('#devCount').textContent = S.devices.length;
+}
+$('#bell').addEventListener('click', () => selectTab('alerts'));
+
+/* ---------- tabs ---------- */
+const BEHIND = {
+  dashboard: ['Behind the dashboard', [
+    'Live data arrives over Server-Sent Events, fanned out to every browser by Reactor sinks in Spring WebFlux.',
+    'Chart.js with my own plugins: a cursor-following tooltip grouped by interface, a legend with live values and group toggles, and doughnut center text.',
+    'Service buttons call the Docker Engine API. Stop the driver runtime and collection drops to zero.']],
+  devices: ['Behind device setup', [
+    'Protocol forms are generated from schema files. The real product covers 40 protocols.',
+    'The same validation runs in the browser and on the API.']],
+  routes: ['Behind data routes', [
+    'Each destination has its own fields, connection test and live throughput.',
+    'Secrets are masked in the UI and logs, and encrypted at rest.']],
+  alerts: ['Behind alarms', [
+    'Thresholds, services, file integrity and database size feed one alarm pipeline.',
+    'Alarms reach admins three ways: the bell (SSE), the system log and email.',
+    'Past the database limit, a cleanup job removes the oldest logs.']],
+  security: ['Behind sign-in', [
+    'Signed JWTs in a server-side store, so sign-out and force-logout apply instantly.',
+    'Tokens are bound to IP and browser. A replayed token is rejected.',
+    'Password and 2FA failures count separately. Hitting the limit locks the account, emails admins and writes a masked audit entry.']],
+};
+function selectTab(t) {
+  S.tab = t;
+  $$('[data-tab]').forEach(b => b.setAttribute('aria-selected', String(b.dataset.tab === t)));
+  $$('[data-panel]').forEach(p => p.hidden = p.dataset.panel !== t);
+  const [title, items] = BEHIND[t];
+  $('#behindTitle').textContent = title;
+  $('#behindList').innerHTML = items.map(i => `<li>${esc(i)}</li>`).join('');
+  renderTab();
+}
+$$('[data-tab]').forEach(b => b.addEventListener('click', () => selectTab(b.dataset.tab)));
+$('.c-nav').addEventListener('keydown', e => {
+  if (!['ArrowDown', 'ArrowUp', 'ArrowLeft', 'ArrowRight'].includes(e.key)) return;
+  const tabs = $$('[data-tab]'); const i = tabs.findIndex(b => b.dataset.tab === S.tab);
+  const d = (e.key === 'ArrowDown' || e.key === 'ArrowRight') ? 1 : -1;
+  const nx = tabs[(i + d + tabs.length) % tabs.length]; selectTab(nx.dataset.tab); nx.focus(); e.preventDefault();
+});
+function renderTab() {
+  if (S.tab === 'dashboard') { renderKpis(); updateCharts(false); renderFeed(); renderServices(); }
+  if (S.tab === 'devices') renderDevices();
+  if (S.tab === 'routes') renderRoutes();
+  if (S.tab === 'alerts') { renderAlerts(); renderMail(); }
+  if (S.tab === 'security') { renderSignin(); renderAdmin(); renderAudit(); }
+}
+
+/* ---------- dashboard ---------- */
+function spark(vals, min, max) {
+  const w = 120, h = 34, x = i => (i / (N - 1)) * w, y = v => h - 3 - ((v - min) / ((max - min) || 1)) * (h - 6);
+  const d = vals.map((v, i) => `${i ? 'L' : 'M'}${x(i).toFixed(1)},${y(v).toFixed(1)}`).join('');
+  const last = vals[vals.length - 1];
+  return `<svg class="spark" viewBox="0 0 ${w} ${h}" aria-hidden="true"><path class="area" d="${d}L${w},${h}L0,${h}Z"/><path class="ln" d="${d}"/><circle class="dot" cx="${x(vals.length - 1).toFixed(1)}" cy="${y(last).toFixed(1)}" r="2.4"/></svg>`;
+}
+function renderKpis() {
+  const k = [
+    { l: 'CPU', v: cur.cpu.toFixed(0), u: '%', a: M.cpu, min: 0, max: 100, alert: cur.cpu >= S.th.cpu },
+    { l: 'Memory', v: cur.mem.toFixed(0), u: '%', a: M.mem, min: 0, max: 100, alert: cur.mem >= S.th.mem },
+    { l: 'Disk', v: cur.disk.toFixed(1), u: '%', a: M.disk, min: 40, max: 45, alert: false },
+    { l: 'Network in', v: cur.net.toFixed(1), u: 'Mbit/s', a: M.net, min: 0, max: 40, alert: false },
+  ];
+  $('#kpis').innerHTML = k.map(x => `<div class="box kpi${x.alert ? ' alert' : ''}"><div class="lbl">${x.l}${x.alert ? ' · over threshold' : ''}</div><div class="val">${x.v}<small>${x.u}</small></div>${spark(x.a, x.min, x.max)}</div>`).join('');
+}
+/* ---------- Chart.js: external tooltip, HTML legend and center-text plugins ---------- */
+const hasChart = typeof window.Chart !== 'undefined';
+const cssv = n => getComputedStyle(document.documentElement).getPropertyValue(n).trim();
+const conv = b => b >= 1e9 ? (b / 1e9).toFixed(2) + 'G' : b >= 1e6 ? (b / 1e6).toFixed(2) + 'M' : b >= 1e3 ? (b / 1e3).toFixed(2) + 'K' : String(Math.round(b));
+const convAxis = b => b >= 1e9 ? +(b / 1e9).toFixed(1) + 'G' : b >= 1e6 ? +(b / 1e6).toFixed(1) + 'M' : b >= 1e3 ? +(b / 1e3).toFixed(1) + 'K' : String(b);
+const tsTitle = ts => { const d = new Date(+ts); return `${d.getFullYear()}-${pad(d.getMonth() + 1)}-${pad(d.getDate())} ${clock(d)}`; };
+const trfVal = (v, m) => v == null ? '–' : conv(v) + (m.endsWith('Bytes') ? 'B' : '');
+const charts = {};
+const legendState = { trfDetails: false };
+
+// HTML tooltip: a small table that follows the cursor and stays inside the card.
+// fmt.grouped splits "eth0.txBytes" labels into one row per interface with fixed metric columns.
+function externalTooltip({ chart, tooltip }, fmt) {
+  const host = chart.canvas.parentNode;
+  let el = host.querySelector('.cj-tip');
+  if (!el) { el = document.createElement('div'); el.className = 'cj-tip'; el.setAttribute('aria-hidden', 'true'); host.appendChild(el); }
+  const dps = tooltip.dataPoints || [];
+  if (tooltip.opacity === 0 || !dps.length) { el.style.opacity = '0'; return; }
+  let body;
+  if (fmt.grouped) {
+    const groups = new Map();
+    dps.forEach((dp, i) => {
+      const [item, metric] = dp.dataset.label.split('.');
+      if (!groups.has(item)) groups.set(item, {});
+      groups.get(item)[metric] = { v: dp.raw, c: tooltip.labelColors[i].backgroundColor };
+    });
+    body = `<tr class="cols"><th></th>${TRF_ORDER.map(m => `<th>${m}</th>`).join('')}</tr>` +
+      [...groups].map(([item, g]) => `<tr><td class="item">${esc(item)}</td>${TRF_ORDER.map(m => g[m] ? `<td><i style="background:${g[m].c}"></i>${trfVal(g[m].v, m)}</td>` : '<td></td>').join('')}</tr>`).join('');
+  } else {
+    body = dps.map((dp, i) => `<tr><td><i style="background:${tooltip.labelColors[i].backgroundColor}"></i>${esc(fmt.label ? fmt.label(dp) : dp.dataset.label)}</td><td style="text-align:right">${fmt.value(dp.raw)}</td></tr>`).join('');
+  }
+  el.innerHTML = `<table><thead><tr><th colspan="5">${esc(fmt.title(dps[0]))}</th></tr></thead><tbody>${body}</tbody></table>`;
+  el.style.opacity = '1';
+  const cx = chart.canvas.offsetLeft + tooltip.caretX, cy = chart.canvas.offsetTop + tooltip.caretY;
+  const w = el.offsetWidth, h = el.offsetHeight, W = host.clientWidth;
+  el.style.left = clamp(cx, w / 2, Math.max(w / 2, W - w / 2)) + 'px';
+  el.style.top = (cy - h - 12 < -30 ? cy + 16 : cy - h - 12) + 'px';
+}
+if (hasChart) Chart.Tooltip.positioners.cursor = (items, pos) => (items && items.length ? { x: pos.x, y: pos.y } : false);
+
+// HTML legend with latest values and click-to-hide. Grouped mode toggles a whole interface,
+// or, in details mode, lists each metric under its interface.
+const LEGEND_CFG = {
+  thr: { el: '#thrLegend', value: v => v == null ? '' : Math.round(v).toLocaleString() + ' msg/s' },
+  trf: { el: '#trfLegend', grouped: true },
+  proto: { el: '#protoLegend', dot: true, value: v => v + ' %' },
+};
+const htmlLegend = {
+  id: 'htmlLegend',
+  afterUpdate(chart, _args, opts) {
+    const cfg = LEGEND_CFG[opts.key]; if (!cfg) return;
+    const ul = $(cfg.el), ds = chart.data.datasets;
+    const last = d => { for (let i = d.data.length - 1; i >= 0; i--) if (d.data[i] != null) return d.data[i]; };
+    const item = (label, color, dash, off, val, onClick) => {
+      const li = document.createElement('li'), b = document.createElement('button');
+      b.type = 'button'; if (off) b.className = 'off'; b.setAttribute('aria-pressed', String(!off));
+      b.innerHTML = `<span class="sw${dash ? ' dash' : ''}${cfg.dot ? ' dot' : ''}" style="border-color:${color};${cfg.dot ? 'background:' + color : ''}"></span><span>${esc(label)}</span>${val !== undefined && val !== '' ? `<span class="v">${esc(val)}</span>` : ''}`;
+      b.addEventListener('click', onClick); li.appendChild(b); return li;
+    };
+    const out = [];
+    if (chart.config.type === 'doughnut') {
+      chart.data.labels.forEach((l, i) => out.push(item(l, ds[0].backgroundColor[i], false, !chart.getDataVisibility(i), cfg.value(ds[0].data[i]), () => { chart.toggleDataVisibility(i); chart.update(); })));
+    } else if (cfg.grouped) {
+      [...new Set(ds.map(d => d.label.split('.')[0]))].forEach(g => {
+        const idx = ds.map((d, i) => d.label.startsWith(g + '.') ? i : -1).filter(i => i >= 0);
+        const anyVis = idx.some(i => chart.isDatasetVisible(i));
+        const toggleGroup = () => { idx.forEach(i => chart.setDatasetVisibility(i, !anyVis)); chart.update(); };
+        if (!legendState.trfDetails) { out.push(item(g, cssv('--ink'), ds[idx[0]].borderDash.length, !anyVis, undefined, toggleGroup)); return; }
+        const h = document.createElement('li'), hb = document.createElement('button');
+        hb.type = 'button'; hb.className = 'grp' + (anyVis ? '' : ' off'); hb.textContent = g; hb.addEventListener('click', toggleGroup);
+        h.appendChild(hb); out.push(h);
+        idx.forEach(i => { const m = ds[i].label.split('.')[1];
+          out.push(item(m, ds[i].borderColor, ds[i].borderDash.length, !chart.isDatasetVisible(i), trfVal(last(ds[i]), m), () => { chart.setDatasetVisibility(i, !chart.isDatasetVisible(i)); chart.update(); })); });
+      });
+    } else {
+      ds.forEach((d, i) => out.push(item(d.label, d.borderColor, false, !chart.isDatasetVisible(i), cfg.value(last(d)), () => { chart.setDatasetVisibility(i, !chart.isDatasetVisible(i)); chart.update(); })));
+    }
+    ul.replaceChildren(...out);
+  },
+};
+
+// Doughnut center text: the hovered slice, or the largest visible one.
+const centerText = {
+  id: 'centerText',
+  beforeDraw(chart, _a, opts) {
+    if (!opts || !opts.enabled) return;
+    const { ctx, chartArea: a } = chart, d = chart.data.datasets[0];
+    const vis = d.data.map((v, i) => chart.getDataVisibility(i) ? i : -1).filter(i => i >= 0);
+    if (!vis.length) return;
+    const act = chart.getActiveElements()[0];
+    const i = act ? act.index : vis.reduce((m, j) => d.data[j] > d.data[m] ? j : m, vis[0]);
+    const x = (a.left + a.right) / 2, y = (a.top + a.bottom) / 2;
+    ctx.save(); ctx.textAlign = 'center'; ctx.textBaseline = 'middle';
+    ctx.font = '500 26px "JetBrains Mono", ui-monospace, monospace'; ctx.fillStyle = d.backgroundColor[i];
+    ctx.fillText(d.data[i] + '%', x, y - 8);
+    ctx.font = '12px "IBM Plex Sans", system-ui, sans-serif'; ctx.fillStyle = cssv('--muted');
+    ctx.fillText(chart.data.labels[i], x, y + 16);
+    ctx.restore();
+  },
+};
+
+const PROTO_SHARE = [
+  { label: 'Modbus TCP', base: 42, tok: '--s1' }, { label: 'Siemens S7', base: 27, tok: '--s2' },
+  { label: 'OPC UA', base: 18, tok: '--s3' }, { label: 'BACnet/IP', base: 13, tok: '--s4' },
+];
+function protoShares() {
+  const raw = PROTO_SHARE.map(p => Math.max(1, p.base + rnd(-2, 2)));
+  const sum = raw.reduce((a, b) => a + b, 0);
+  const pct = raw.map(v => Math.round(v / sum * 100)); pct[0] += 100 - pct.reduce((a, b) => a + b, 0);
+  return pct;
+}
+function lineOptions(yFmt, tip, key) {
+  return {
+    responsive: true, maintainAspectRatio: false, animation: false, normalized: true, spanGaps: true,
+    interaction: { mode: 'index', intersect: false },
+    elements: { point: { radius: 0, hoverRadius: 3 }, line: { borderWidth: 2, tension: 0.3 } },
+    scales: {
+      x: { display: false },
+      y: { min: 0, grid: { color: cssv('--line'), lineWidth: 1 }, border: { display: false, dash: [6, 4] }, ticks: { color: cssv('--muted'), maxTicksLimit: 5, callback: yFmt } },
+    },
+    plugins: { legend: { display: false }, tooltip: { enabled: false, position: 'cursor', external: c => externalTooltip(c, tip) }, htmlLegend: { key } },
+  };
+}
+function initCharts() {
+  if (!hasChart) { $$('.cj-canvas').forEach(c => c.innerHTML = '<p class="hint">The chart library could not load.</p>'); return; }
+  Chart.defaults.font.family = '"IBM Plex Sans", system-ui, sans-serif';
+  Chart.defaults.font.size = 11;
+  const lineDs = (label, arr, tok, dash = []) => ({ label, data: arr.slice(), _tok: tok, borderColor: cssv(tok), backgroundColor: cssv(tok), borderDash: dash });
+  charts.thr = new Chart($('#thrChart'), {
+    type: 'line',
+    data: { labels: M.ts.slice(), datasets: [lineDs('Collected', M.tin, '--s1'), lineDs('Through CEP', M.tcep, '--s2'), lineDs('Stored', M.tout, '--s3')] },
+    options: lineOptions(v => Number(v).toLocaleString(), { title: dp => tsTitle(dp.label), value: v => v == null ? '–' : Math.round(v).toLocaleString() + ' msg/s' }, 'thr'),
+    plugins: [htmlLegend],
+  });
+  const metricTok = { txBytes: '--s1', txPackets: '--s2', rxBytes: '--s3', rxPackets: '--s4' };
+  charts.trf = new Chart($('#trfChart'), {
+    type: 'line',
+    data: { labels: M.ts.slice(), datasets: IFACES.flatMap(f => TRF_ORDER.map(m => lineDs(`${f.name}.${m}`, TRF[`${f.name}.${m}`], metricTok[m], f.dash))) },
+    options: lineOptions(convAxis, { grouped: true, title: dp => tsTitle(dp.label) }, 'trf'),
+    plugins: [htmlLegend],
+  });
+  charts.proto = new Chart($('#protoChart'), {
+    type: 'doughnut',
+    data: { labels: PROTO_SHARE.map(p => p.label), datasets: [{ data: protoShares(), backgroundColor: PROTO_SHARE.map(p => cssv(p.tok)), borderColor: cssv('--panel'), borderWidth: 2, hoverOffset: 4 }] },
+    options: {
+      responsive: true, maintainAspectRatio: false, animation: false, cutout: '70%',
+      plugins: { legend: { display: false }, centerText: { enabled: true }, htmlLegend: { key: 'proto' },
+        tooltip: { enabled: false, external: c => externalTooltip(c, { title: () => 'Share of messages · last 60 s', label: dp => dp.label, value: v => v + ' %' }) } },
+    },
+    plugins: [htmlLegend, centerText],
+  });
+}
+function updateCharts(full) {
+  if (!hasChart || !charts.thr) return;
+  const L = M.ts.slice();
+  charts.thr.data.labels = L;
+  [M.tin, M.tcep, M.tout].forEach((a, i) => charts.thr.data.datasets[i].data = a.slice());
+  charts.trf.data.labels = L.slice();
+  charts.trf.data.datasets.forEach(d => d.data = TRF[d.label].slice());
+  if (full) charts.proto.data.datasets[0].data = protoShares();
+  charts.thr.update('none'); charts.trf.update('none'); if (full) charts.proto.update('none');
+}
+function applyChartTheme() {
+  if (!hasChart || !charts.thr) return;
+  [charts.thr, charts.trf].forEach(c => {
+    c.options.scales.y.grid.color = cssv('--line'); c.options.scales.y.ticks.color = cssv('--muted');
+    c.data.datasets.forEach(d => { d.borderColor = d.backgroundColor = cssv(d._tok); });
+    c.update('none');
+  });
+  const pd = charts.proto.data.datasets[0];
+  pd.backgroundColor = PROTO_SHARE.map(p => cssv(p.tok)); pd.borderColor = cssv('--panel'); charts.proto.update('none');
+}
+try { matchMedia('(prefers-color-scheme: dark)').addEventListener('change', applyChartTheme); } catch (e) {}
+new MutationObserver(applyChartTheme).observe(document.documentElement, { attributes: true, attributeFilter: ['data-theme'] });
+$('#trfDetails').addEventListener('click', e => {
+  legendState.trfDetails = !legendState.trfDetails;
+  e.currentTarget.textContent = legendState.trfDetails ? 'Hide details' : 'Show details';
+  e.currentTarget.setAttribute('aria-pressed', String(legendState.trfDetails));
+  if (charts.trf) charts.trf.update('none');
+});
+function renderFeed() {
+  const ev = S.events.slice(0, 8);
+  $('#feed').innerHTML = ev.length ? ev.map(e => `<li><time>${e.t}</time><span class="lv ${e.level}"></span><span>${esc(e.text)}</span></li>`).join('') : '<li><span></span><span></span><span class="hint">Waiting for events…</span></li>';
+}
+const STAT = { running: ['ok', 'Running'], stopped: ['crit', 'Stopped'], restarting: ['warn', 'Restarting'], starting: ['warn', 'Starting'] };
+function renderServices() {
+  $('#svcBody').innerHTML = S.services.map((s, i) => {
+    const [c, l] = STAT[s.status]; const busy = s.status === 'restarting' || s.status === 'starting';
+    return `<tr><td><b>${s.name}</b></td><td class="mono">${s.image}</td><td><span class="pill ${c}">${l}</span></td><td class="mono num">${s.status === 'running' ? dur(s.up) : '—'}</td>
+    <td><div class="acts">${s.status === 'stopped'
+      ? `<button class="mini" data-svc="${i}" data-act="start">Start</button>`
+      : `<button class="mini" data-svc="${i}" data-act="restart" ${busy ? 'disabled' : ''}>Restart</button><button class="mini danger" data-svc="${i}" data-act="stop" ${busy ? 'disabled' : ''}>Stop</button>`}</div></td></tr>`;
+  }).join('');
+}
+function svcAction(s, act, who = 'admin') {
+  if (act === 'stop') {
+    s.status = 'stopped';
+    audit('Operation', who, 'CONTAINER', 'STOP', '192.168.10.5', 'SUCCESS', { container: s.name });
+    alarm('crit', 'SERVICE_DOWN', `${s.name} stopped`, `Container ${s.name} is not running. Dependent pipeline stages pause.`);
+  } else {
+    const restarting = act === 'restart';
+    s.status = restarting ? 'restarting' : 'starting';
+    audit('Operation', who, 'CONTAINER', act.toUpperCase(), '192.168.10.5', 'SUCCESS', { container: s.name });
+    event('info', `${s.name} ${restarting ? 'restarting' : 'starting'}`);
+    setTimeout(() => {
+      s.status = 'running'; s.up = 0;
+      if (restarting) event('ok', `${s.name} is running again`);
+      else alarm('info', 'SERVICE_UP', `${s.name} started`, 'Container is running and passing health checks.');
+      if (S.tab === 'dashboard') renderServices();
+    }, 2200);
+  }
+  if (S.tab === 'dashboard') renderServices();
+}
+$('#svcBody').addEventListener('click', e => {
+  const b = e.target.closest('button[data-act]'); if (!b) return;
+  svcAction(S.services[+b.dataset.svc], b.dataset.act);
+});
+
+/* ---------- generic schema forms ---------- */
+const IP = /^(25[0-5]|2[0-4]\d|1?\d?\d)(\.(25[0-5]|2[0-4]\d|1?\d?\d)){3}$/;
+function fieldHTML(f, p) {
+  const id = `${p}-${f.id}`, eid = `${id}-err`, full = f.full ? ' full' : '';
+  if (f.type === 'select') return `<div class="field${full}"><label for="${id}">${f.label}</label><select id="${id}">${f.opts.map(o => `<option${o === f.def ? ' selected' : ''}>${o}</option>`).join('')}</select></div>`;
+  if (f.type === 'check') return `<div class="field${full}" style="align-self:end"><label class="check"><input type="checkbox" id="${id}"${f.def ? ' checked' : ''}> ${f.label}</label></div>`;
+  const t = f.type === 'secret' ? 'password' : f.type === 'int' ? 'number' : 'text';
+  const extra = f.type === 'int' ? ` min="${f.min}" max="${f.max}" inputmode="numeric"` : '';
+  const hint = f.hint ? `<div class="hint">${f.hint}</div>` : '';
+  return `<div class="field${full}"><label for="${id}">${f.label}${f.req ? '' : ' <span class="hint">(optional)</span>'}</label><input type="${t}" id="${id}"${extra} value="${f.def ?? ''}" placeholder="${f.ph ?? ''}" aria-describedby="${eid}" autocomplete="${t === 'password' ? 'new-password' : 'off'}" spellcheck="false">${hint}<div class="err" id="${eid}"></div></div>`;
+}
+function readFields(fields, p) {
+  const o = {};
+  fields.forEach(f => { const el = $(`#${p}-${f.id}`); if (!el) return; o[f.id] = f.type === 'check' ? el.checked : f.type === 'int' ? (el.value === '' ? null : Number(el.value)) : el.value.trim(); });
+  return o;
+}
+function checkField(f, v) {
+  const empty = v === '' || v === null;
+  if (empty) return f.req ? `Enter ${f.label.toLowerCase()}.` : '';
+  if (f.type === 'ip' && !IP.test(v)) return 'Enter an IPv4 address, like 10.20.3.11.';
+  if (f.type === 'int' && (!Number.isInteger(v) || v < f.min || v > f.max)) return `Use a whole number from ${f.min} to ${f.max}.`;
+  if (f.pattern && !f.pattern.test(v)) return f.msg;
+  return '';
+}
+function validate(fields, p) {
+  const vals = readFields(fields, p); let first = null;
+  fields.forEach(f => {
+    if (f.type === 'select' || f.type === 'check') return;
+    const el = $(`#${p}-${f.id}`), msg = checkField(f, vals[f.id]);
+    el.setAttribute('aria-invalid', msg ? 'true' : 'false'); $(`#${p}-${f.id}-err`).textContent = msg;
+    if (msg && !first) first = el;
+  });
+  return first;
+}
+function checkName(el, list) {
+  const v = el.value.trim(); let msg = '';
+  if (!v) msg = 'Enter a name.';
+  else if (!/^[a-z0-9][a-z0-9-]{2,31}$/.test(v)) msg = 'Use 3–32 lowercase letters, digits or hyphens.';
+  else if (list.some(x => x.name === v)) msg = 'That name is already in use.';
+  el.setAttribute('aria-invalid', msg ? 'true' : 'false'); $(`#${el.id}-err`).textContent = msg;
+  return msg;
+}
+
+/* ---------- devices ---------- */
+const PROTO = {
+  'modbus-tcp': { label: 'Modbus TCP', fields: [
+    { id: 'host', label: 'Host IP', type: 'ip', req: true, ph: '10.20.3.12' },
+    { id: 'port', label: 'Port', type: 'int', min: 1, max: 65535, def: 502, req: true },
+    { id: 'unitId', label: 'Unit ID', type: 'int', min: 1, max: 247, def: 1, req: true },
+    { id: 'byteOrder', label: 'Byte order', type: 'select', opts: ['ABCD', 'CDAB', 'BADC', 'DCBA'], def: 'ABCD' },
+    { id: 'pollMs', label: 'Poll interval (ms)', type: 'int', min: 100, max: 60000, def: 1000, req: true }] },
+  'modbus-rtu': { label: 'Modbus RTU (serial)', fields: [
+    { id: 'port', label: 'Serial port', type: 'text', req: true, def: '/dev/ttyS0', pattern: /^\/dev\/tty[A-Za-z0-9]+$/, msg: 'Use a device path like /dev/ttyS0.' },
+    { id: 'baud', label: 'Baud rate', type: 'select', opts: ['9600', '19200', '38400', '57600', '115200'], def: '9600' },
+    { id: 'parity', label: 'Parity', type: 'select', opts: ['None', 'Even', 'Odd'], def: 'None' },
+    { id: 'stopBits', label: 'Stop bits', type: 'select', opts: ['1', '2'], def: '1' },
+    { id: 'unitId', label: 'Unit ID', type: 'int', min: 1, max: 247, def: 1, req: true },
+    { id: 'pollMs', label: 'Poll interval (ms)', type: 'int', min: 100, max: 60000, def: 1000, req: true }] },
+  'opcua': { label: 'OPC UA client', fields: [
+    { id: 'endpoint', label: 'Endpoint URL', type: 'text', req: true, full: true, ph: 'opc.tcp://10.20.5.9:4840', pattern: /^opc\.tcp:\/\/[\w.-]+(:\d{1,5})?(\/\S*)?$/, msg: 'Start with opc.tcp:// followed by a host and port.' },
+    { id: 'securityPolicy', label: 'Security policy', type: 'select', opts: ['None', 'Basic256Sha256', 'Aes128_Sha256_RsaOaep'], def: 'Basic256Sha256' },
+    { id: 'securityMode', label: 'Security mode', type: 'select', opts: ['None', 'Sign', 'SignAndEncrypt'], def: 'SignAndEncrypt' },
+    { id: 'username', label: 'Username', type: 'text', ph: 'opc-reader' },
+    { id: 'password', label: 'Password', type: 'secret' },
+    { id: 'publishMs', label: 'Publishing interval (ms)', type: 'int', min: 50, max: 60000, def: 1000, req: true }] },
+  's7': { label: 'Siemens S7', fields: [
+    { id: 'host', label: 'Host IP', type: 'ip', req: true, ph: '10.20.3.41' },
+    { id: 'port', label: 'Port', type: 'int', min: 1, max: 65535, def: 102, req: true },
+    { id: 'model', label: 'PLC model', type: 'select', opts: ['S7-300', 'S7-400', 'S7-1200', 'S7-1500'], def: 'S7-1200' },
+    { id: 'rack', label: 'Rack', type: 'int', min: 0, max: 7, def: 0, req: true },
+    { id: 'slot', label: 'Slot', type: 'int', min: 0, max: 31, def: 1, req: true },
+    { id: 'pollMs', label: 'Poll interval (ms)', type: 'int', min: 100, max: 60000, def: 1000, req: true }] },
+  'melsec': { label: 'Mitsubishi MELSEC', fields: [
+    { id: 'host', label: 'Host IP', type: 'ip', req: true, ph: '10.20.4.20' },
+    { id: 'port', label: 'Port', type: 'int', min: 1, max: 65535, def: 5007, req: true },
+    { id: 'frame', label: 'Frame', type: 'select', opts: ['3E', '4E'], def: '3E' },
+    { id: 'code', label: 'Data code', type: 'select', opts: ['Binary', 'ASCII'], def: 'Binary' },
+    { id: 'pollMs', label: 'Poll interval (ms)', type: 'int', min: 100, max: 60000, def: 1000, req: true }] },
+  'bacnet': { label: 'BACnet/IP', fields: [
+    { id: 'host', label: 'Host IP', type: 'ip', req: true, ph: '10.20.7.16' },
+    { id: 'port', label: 'Port', type: 'int', min: 1, max: 65535, def: 47808, req: true },
+    { id: 'deviceInstance', label: 'Device instance', type: 'int', min: 0, max: 4194302, def: 1001, req: true },
+    { id: 'pollMs', label: 'Poll interval (ms)', type: 'int', min: 1000, max: 600000, def: 5000, req: true }] },
+};
+const PROTO_SHORT = { 'modbus-tcp': 'Modbus TCP', 'modbus-rtu': 'Modbus RTU', opcua: 'OPC UA', s7: 'Siemens S7', melsec: 'MELSEC', bacnet: 'BACnet/IP' };
+$('#dev-proto').innerHTML = Object.entries(PROTO).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('');
+function devFields() { return PROTO[$('#dev-proto').value].fields; }
+function renderDevFields() { $('#devFields').innerHTML = devFields().map(f => fieldHTML(f, 'df')).join(''); devPreview(); }
+function devPreview() {
+  const body = { name: $('#dev-name').value.trim() || null, driver: $('#dev-proto').value.toUpperCase().replace('-', '_'), config: readFields(devFields(), 'df') };
+  $('#devPayload').textContent = JSON.stringify(mask(body), null, 2);
+}
+$('#dev-proto').addEventListener('change', renderDevFields);
+$('#devForm').addEventListener('input', devPreview);
+$('#devForm').addEventListener('change', devPreview);
+$('#devReset').addEventListener('click', () => { $('#dev-name').value = ''; $('#dev-name').setAttribute('aria-invalid', 'false'); $('#dev-name-err').textContent = ''; renderDevFields(); $('#devNote').textContent = ''; });
+$('#devForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const nameErr = checkName($('#dev-name'), S.devices);
+  const bad = validate(devFields(), 'df');
+  if (nameErr || bad) { (nameErr ? $('#dev-name') : bad).focus(); $('#devNote').textContent = 'Fix the highlighted fields.'; return; }
+  const p = $('#dev-proto').value, c = readFields(devFields(), 'df');
+  const ep = c.endpoint || (c.host ? `${c.host}:${c.port}` : `${c.port} @ ${c.baud}`);
+  const d = { name: $('#dev-name').value.trim(), proto: p, ep, tags: 0, poll: c.pollMs || c.publishMs, status: 'connecting' };
+  S.devices.push(d); renderBell();
+  audit('Operation', 'admin', 'DRIVER', 'CREATE', '192.168.10.5', 'SUCCESS', { name: d.name, driver: p, ...c });
+  toast(`Device ${d.name} added`, 'ok'); event('info', `Connecting to ${d.name}`);
+  $('#devNote').textContent = '';
+  $('#dev-name').value = ''; renderDevFields(); renderDevices();
+  setTimeout(() => { d.status = 'ok'; d.tags = Math.floor(rnd(12, 80)); event('ok', `${d.name} connected · ${d.tags} tags discovered`); if (S.tab === 'devices') renderDevices(); }, 1800);
+});
+const DEVSTAT = { ok: ['ok', 'Online'], warn: ['warn', 'Slow replies'], connecting: ['info', 'Connecting'], off: ['off', 'Disabled'] };
+function renderDevices() {
+  $('#devBody').innerHTML = S.devices.map((d, i) => { const [c, l] = DEVSTAT[d.status];
+    return `<tr><td><b>${esc(d.name)}</b></td><td>${PROTO_SHORT[d.proto]}</td><td class="mono">${esc(d.ep)}</td><td class="num">${d.tags || '—'}</td><td class="mono num">${d.poll} ms</td><td><span class="pill ${c}">${l}</span></td><td><button class="mini" data-dev="${i}">${d.status === 'off' ? 'Enable' : 'Disable'}</button></td></tr>`; }).join('');
+  $('#rt-src').innerHTML = S.devices.map(d => `<option>${esc(d.name)}</option>`).join('');
+}
+$('#devBody').addEventListener('click', e => {
+  const b = e.target.closest('button[data-dev]'); if (!b) return;
+  const d = S.devices[+b.dataset.dev]; d.status = d.status === 'off' ? 'ok' : 'off';
+  audit('Operation', 'admin', 'DRIVER', d.status === 'off' ? 'DISABLE' : 'ENABLE', '192.168.10.5', 'SUCCESS', { name: d.name });
+  event('info', `${d.name} ${d.status === 'off' ? 'disabled' : 'enabled'}`); renderDevices();
+});
+
+/* ---------- routes ---------- */
+const SINK = {
+  kafka: { label: 'Apache Kafka', fields: [
+    { id: 'brokers', label: 'Brokers', type: 'text', req: true, full: true, ph: '10.30.0.5:9092, 10.30.0.6:9092', pattern: /^[\w.-]+:\d{1,5}(\s*,\s*[\w.-]+:\d{1,5})*$/, msg: 'List host:port pairs separated by commas.' },
+    { id: 'topic', label: 'Topic', type: 'text', req: true, ph: 'plant.line3.raw' },
+    { id: 'acks', label: 'Acks', type: 'select', opts: ['all', '1', '0'], def: 'all' },
+    { id: 'compression', label: 'Compression', type: 'select', opts: ['none', 'gzip', 'lz4', 'zstd'], def: 'lz4' },
+    { id: 'saslPassword', label: 'SASL password', type: 'secret' }] },
+  mqtt: { label: 'MQTT broker', fields: [
+    { id: 'host', label: 'Host IP', type: 'ip', req: true, ph: '10.30.0.8' },
+    { id: 'port', label: 'Port', type: 'int', min: 1, max: 65535, def: 8883, req: true },
+    { id: 'topic', label: 'Topic', type: 'text', req: true, ph: 'plant/line3/#' },
+    { id: 'qos', label: 'QoS', type: 'select', opts: ['0', '1', '2'], def: '1' },
+    { id: 'username', label: 'Username', type: 'text' },
+    { id: 'password', label: 'Password', type: 'secret' },
+    { id: 'tls', label: 'Use TLS', type: 'check', def: true }] },
+  influx2: { label: 'InfluxDB 2.x', fields: [
+    { id: 'url', label: 'URL', type: 'text', req: true, full: true, ph: 'https://10.30.0.12:8086', pattern: /^https?:\/\/[\w.-]+(:\d{1,5})?\/?$/, msg: 'Use http:// or https:// with a host and port.' },
+    { id: 'org', label: 'Organization', type: 'text', req: true, ph: 'plant-a' },
+    { id: 'bucket', label: 'Bucket', type: 'text', req: true, ph: 'line3' },
+    { id: 'token', label: 'API token', type: 'secret', req: true, full: true, hint: 'Encrypted before it is stored. It is never shown again.' }] },
+  sql: { label: 'SQL database', fields: [
+    { id: 'engine', label: 'Engine', type: 'select', opts: ['MariaDB', 'MySQL', 'PostgreSQL', 'Oracle', 'SQL Server'], def: 'MariaDB' },
+    { id: 'host', label: 'Host IP', type: 'ip', req: true, ph: '10.30.0.20' },
+    { id: 'port', label: 'Port', type: 'int', min: 1, max: 65535, def: 3306, req: true },
+    { id: 'database', label: 'Database', type: 'text', req: true, ph: 'qa' },
+    { id: 'table', label: 'Table', type: 'text', req: true, ph: 'measurements' },
+    { id: 'username', label: 'Username', type: 'text', req: true, ph: 'edge_writer' },
+    { id: 'password', label: 'Password', type: 'secret', req: true }] },
+  aws: { label: 'AWS IoT Core', fields: [
+    { id: 'region', label: 'Region', type: 'select', opts: ['ap-northeast-2', 'ap-southeast-1', 'ap-southeast-3', 'us-east-1', 'eu-central-1'], def: 'ap-northeast-2' },
+    { id: 'endpoint', label: 'Endpoint', type: 'text', req: true, ph: 'abc123-ats.iot.ap-northeast-2.amazonaws.com', pattern: /^[\w-]+-ats\.iot\.[\w-]+\.amazonaws\.com$/, msg: 'Use the ATS endpoint from the AWS IoT console.' },
+    { id: 'topic', label: 'Topic', type: 'text', req: true, ph: 'plant/line3' },
+    { id: 'certificate', label: 'Client certificate', type: 'select', opts: ['edge-01.pem.crt', 'edge-01-backup.pem.crt'], def: 'edge-01.pem.crt' }] },
+  azure: { label: 'Azure Event Hubs', fields: [
+    { id: 'namespace', label: 'Namespace', type: 'text', req: true, ph: 'plant-a-hub' },
+    { id: 'hub', label: 'Event hub', type: 'text', req: true, ph: 'line3-events' },
+    { id: 'sasKeyName', label: 'SAS key name', type: 'text', req: true, def: 'RootManageSharedAccessKey' },
+    { id: 'sasKey', label: 'SAS key', type: 'secret', req: true }] },
+};
+const SINK_SHORT = { kafka: 'Kafka', mqtt: 'MQTT', influx2: 'InfluxDB 2', sql: 'SQL', aws: 'AWS IoT', azure: 'Azure Event Hubs' };
+$('#rt-sink').innerHTML = Object.entries(SINK).map(([k, v]) => `<option value="${k}">${v.label}</option>`).join('');
+function rtFields() { return SINK[$('#rt-sink').value].fields; }
+function renderRtFields() { $('#rtFields').innerHTML = rtFields().map(f => fieldHTML(f, 'rf')).join(''); rtPreview(); $('#rtNote').textContent = ''; }
+function rtPreview() {
+  const body = { name: $('#rt-name').value.trim() || null, source: $('#rt-src').value, type: $('#rt-sink').value.toUpperCase(), config: readFields(rtFields(), 'rf') };
+  $('#rtPayload').textContent = JSON.stringify(mask(body), null, 2);
+}
+$('#rt-sink').addEventListener('change', renderRtFields);
+$('#rtForm').addEventListener('input', rtPreview);
+$('#rtForm').addEventListener('change', rtPreview);
+$('#rtTest').addEventListener('click', () => {
+  const bad = validate(rtFields(), 'rf');
+  if (bad) { bad.focus(); $('#rtNote').textContent = 'Fill in the highlighted fields first.'; return; }
+  const b = $('#rtTest'); b.disabled = true; $('#rtNote').textContent = 'Testing…';
+  setTimeout(() => { b.disabled = false; $('#rtNote').textContent = `Connected in ${Math.floor(rnd(18, 70))} ms.`; }, 1200);
+});
+$('#rtForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const nameErr = checkName($('#rt-name'), S.routes); const bad = validate(rtFields(), 'rf');
+  if (nameErr || bad) { (nameErr ? $('#rt-name') : bad).focus(); $('#rtNote').textContent = 'Fix the highlighted fields.'; return; }
+  const k = $('#rt-sink').value, c = readFields(rtFields(), 'rf');
+  const meta = Object.entries(c).filter(([key, v]) => v && typeof v !== 'boolean' && !SENSITIVE.some(s => key.toLowerCase().includes(s))).slice(0, 3).map(([key, v]) => `${key} ${v}`).join(' · ');
+  S.routes.push({ name: $('#rt-name').value.trim(), sink: k, src: $('#rt-src').value, meta, on: true, base: rnd(40, 400) });
+  audit('Operation', 'admin', 'STORE', 'CREATE', '192.168.10.5', 'SUCCESS', { name: $('#rt-name').value.trim(), type: k, ...c });
+  toast('Route saved', 'ok'); event('info', `Route ${$('#rt-name').value.trim()} → ${SINK_SHORT[k]} started`);
+  $('#rt-name').value = ''; renderRtFields(); renderRoutes();
+});
+function renderRoutes() {
+  const storeUp = svc('store-forwarder').status === 'running';
+  $('#routeList').innerHTML = S.routes.map((r, i) => {
+    const live = r.on && storeUp; const rate = live ? Math.round(r.base * rnd(0.9, 1.1)) : 0;
+    return `<div class="route"><div style="min-width:0"><div class="nm">${esc(r.name)} <span class="hint" style="font-weight:400">${esc(r.src)} → ${SINK_SHORT[r.sink]}</span></div><div class="meta">${esc(r.meta)}</div></div>
+      <div class="rate" data-rate="${i}">${r.on ? (storeUp ? rate.toLocaleString() + ' msg/s' : '<span class="pill crit">Paused</span>') : '<span class="pill off">Off</span>'}</div>
+      <label class="switch" title="Turn route on or off"><input type="checkbox" data-route="${i}" ${r.on ? 'checked' : ''} aria-label="Route ${esc(r.name)} on"><span></span></label></div>`;
+  }).join('');
+}
+function tickRoutes() {
+  const storeUp = svc('store-forwarder').status === 'running';
+  S.routes.forEach((r, i) => { const el = $(`[data-rate="${i}"]`); if (el && r.on && storeUp) el.textContent = Math.round(r.base * rnd(0.9, 1.1)).toLocaleString() + ' msg/s'; });
+}
+$('#routeList').addEventListener('change', e => {
+  const t = e.target.closest('input[data-route]'); if (!t) return;
+  const r = S.routes[+t.dataset.route]; r.on = t.checked;
+  audit('Operation', 'admin', 'STORE', r.on ? 'START' : 'STOP', '192.168.10.5', 'SUCCESS', { name: r.name });
+  event('info', `Route ${r.name} ${r.on ? 'started' : 'stopped'}`); renderRoutes();
+});
+
+/* ---------- alarms ---------- */
+['cpu', 'mem', 'db'].forEach(k => {
+  const el = $(`#th-${k}`), out = $(`#th-${k}-o`);
+  el.addEventListener('input', () => out.textContent = el.value + (k === 'db' ? ' GB' : ' %'));
+});
+function renderChips() { $('#mailChips').innerHTML = S.recipients.map((r, i) => `<span class="chip">${esc(r)}<button type="button" data-rm="${i}" aria-label="Remove ${esc(r)}">×</button></span>`).join(''); }
+$('#mailChips').addEventListener('click', e => { const b = e.target.closest('[data-rm]'); if (b) { S.recipients.splice(+b.dataset.rm, 1); renderChips(); } });
+function addRecipient() {
+  const el = $('#mailAdd'), v = el.value.trim(); let msg = '';
+  if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v)) msg = 'Enter an email address, like name@plant.example.';
+  else if (S.recipients.includes(v)) msg = 'Already on the list.';
+  el.setAttribute('aria-invalid', msg ? 'true' : 'false'); $('#mailAdd-err').textContent = msg;
+  if (!msg) { S.recipients.push(v); el.value = ''; renderChips(); }
+}
+$('#mailAddBtn').addEventListener('click', addRecipient);
+$('#mailAdd').addEventListener('keydown', e => { if (e.key === 'Enter') { e.preventDefault(); addRecipient(); } });
+$('#thForm').addEventListener('submit', e => {
+  e.preventDefault();
+  const before = { ...S.th };
+  S.th = { cpu: +$('#th-cpu').value, mem: +$('#th-mem').value, db: +$('#th-db').value }; S.mailOn = $('#th-mail').checked;
+  audit('Operation', 'admin', 'THRESHOLD', 'SET', '192.168.10.5', 'SUCCESS', { before, after: S.th, email: S.mailOn, recipients: S.recipients.length });
+  toast('Thresholds saved', 'ok');
+});
+$$('[data-sim]').forEach(b => b.addEventListener('click', () => {
+  const k = b.dataset.sim;
+  if (k === 'cpu') { S.spikeUntil = now() + 8000; toast('Simulating high load for 8 seconds'); }
+  if (k === 'svc') { const s = svc('cep-engine'); if (s.status === 'running') svcAction(s, 'stop', 'system'); else toast('CEP engine is already stopped. Start it from the dashboard.'); }
+  if (k === 'integrity') {
+    audit('System', 'system', 'INTEGRITY_CHECK', 'AUTO_CHECK', '-', 'FAIL', { file: '/opt/edge/web/config/app.yml' });
+    alarm('crit', 'INTEGRITY_FAIL', 'Integrity check failed', 'Hash of /opt/edge/web/config/app.yml does not match the registered value.');
+  }
+  if (k === 'db') {
+    S.dbGB = S.th.db + 0.3; renderDb();
+    alarm('warn', 'RESOURCE_WARNING', `Log database over ${S.th.db} GB`, `Using ${S.dbGB.toFixed(1)} GB. Cleanup scheduled.`);
+    setTimeout(() => {
+      const freed = S.dbGB - S.th.db * 0.7; S.dbGB = S.th.db * 0.7; renderDb();
+      audit('System', 'system', 'LOGS', 'CLEAN', '-', 'SUCCESS', { removedGB: +freed.toFixed(1), policy: 'oldest first' });
+      alarm('info', 'CLEAN', 'Log cleanup finished', `Removed ${freed.toFixed(1)} GB of the oldest logs. Now ${S.dbGB.toFixed(1)} GB.`);
+    }, 3000);
+  }
+}));
+function renderDb() { $('#dbNow').textContent = S.dbGB.toFixed(1) + ' GB'; }
+function renderAlerts() {
+  const f = $('#alFilter').value; const list = S.alerts.filter(a => f === 'all' || !a.read);
+  $('#alList').innerHTML = list.length ? list.map(a => `<li class="${a.level}${a.read ? '' : ' unread'}"><div class="t"><span>${esc(a.title)}</span><time>${a.t}</time></div><div class="b">${esc(a.body)}</div>
+    <div class="acts" style="margin-top:4px">${a.read ? '' : `<button class="mini" data-read="${a.id}">Mark read</button>`}<button class="mini" data-del="${a.id}">Delete</button></div></li>`).join('')
+    : `<li class="empty" style="border-left-width:1px">${f === 'unread' ? 'No unread notifications.' : 'No notifications yet. Use the buttons on the left to trigger one.'}</li>`;
+}
+$('#alList').addEventListener('click', e => {
+  const r = e.target.closest('[data-read]'), d = e.target.closest('[data-del]');
+  if (r) { S.alerts.find(a => a.id === r.dataset.read).read = true; audit('Operation', 'admin', 'ALARM', 'READ', '192.168.10.5', 'SUCCESS'); }
+  if (d) { S.alerts = S.alerts.filter(a => a.id !== d.dataset.del); audit('Operation', 'admin', 'ALARM', 'DELETE', '192.168.10.5', 'SUCCESS'); }
+  renderAlerts(); renderBell();
+});
+$('#alFilter').addEventListener('change', renderAlerts);
+$('#alReadAll').addEventListener('click', () => { S.alerts.forEach(a => a.read = true); audit('Operation', 'admin', 'ALARM', 'READ_ALL', '192.168.10.5', 'SUCCESS'); renderAlerts(); renderBell(); });
+$('#alClear').addEventListener('click', () => { S.alerts = []; audit('Operation', 'admin', 'ALARM', 'DELETE_ALL', '192.168.10.5', 'SUCCESS'); renderAlerts(); renderBell(); });
+let lastMail = 'Nothing sent yet.';
+function renderMail() { $('#mqPending').textContent = S.mailQueue.length; $('#mqNext').textContent = S.mailTick + ' s'; $('#mqLast').textContent = lastMail; }
+function flushMail() {
+  if (!S.mailQueue.length) return;
+  const n = S.mailQueue.length; S.mailQueue = [];
+  lastMail = S.recipients.length ? `${clock()}: sent ${n} alarm email${n > 1 ? 's' : ''} to ${S.recipients.length} recipient${S.recipients.length > 1 ? 's' : ''}.` : `${clock()}: ${n} alarm${n > 1 ? 's' : ''} dropped. No recipients are set.`;
+  event('info', lastMail.slice(10));
+}
+
+/* ---------- security ---------- */
+const SEC = {
+  user: 'operator1', pw: 'Harbor!Valve92', ip: '192.168.10.37', ua: 'Chrome 130 · Windows',
+  limit: 3, lockMin: 5, twoFA: true, dup: true,
+  fails: 0, otpFails: 0, locked: false, lockedUntil: 0,
+  stage: 'login', msg: null, sessionEnd: 0, jti: '', prompt: false, reqs: [],
+  sessions: [
+    { id: 's-91c2', user: 'admin', client: '192.168.10.5 · Chrome 130 · macOS', since: '07:55', you: false, me: true },
+    { id: 's-7f3a', user: 'operator1', client: '10.0.4.21 · Edge 129 · Windows', since: '08:12' },
+  ],
+};
+const SESSION_S = 600;
+const jti = () => Array.from({ length: 4 }, () => Math.floor(Math.random() * 65536).toString(16).padStart(4, '0')).join('-');
+function otpFor(step) { let x = Math.imul(step ^ 0x5bd1e995, 2654435761) >>> 0; x ^= x >>> 15; x = Math.imul(x, 2246822519) >>> 0; x ^= x >>> 13; return String(x % 1000000).padStart(6, '0'); }
+const otpStep = () => Math.floor(now() / 30000);
+function setStage(st, msg = null) { SEC.stage = st; SEC.msg = msg; renderSignin(); renderAdmin(); }
+function lockAccount(kind) {
+  SEC.locked = true; SEC.lockedUntil = now() + SEC.lockMin * 60000;
+  audit('Operation', SEC.user, 'AUTHENTICATION', 'LOCK', SEC.ip, 'FAIL', { reason: kind === 'otp' ? 'OTP failures' : 'password failures', limit: SEC.limit });
+  alarm('crit', 'LOGIN_LOCK', `Account ${SEC.user} locked`, `${SEC.limit} failed ${kind === 'otp' ? 'verification codes' : 'passwords'} in a row from ${SEC.ip}. Unlocks automatically in ${SEC.lockMin} minutes.`);
+}
+function signedIn() {
+  SEC.fails = 0; SEC.otpFails = 0; SEC.jti = jti(); SEC.sessionEnd = now() + SESSION_S * 1000; SEC.prompt = false; SEC.reqs = [];
+  SEC.sessions = SEC.sessions.filter(s => !s.you);
+  SEC.sessions.push({ id: 's-' + SEC.jti.slice(0, 4), user: SEC.user, client: `${SEC.ip} · ${SEC.ua}`, since: clock().slice(0, 5), you: true });
+  audit('Operation', SEC.user, 'AUTHENTICATION', 'LOGIN', SEC.ip, 'SUCCESS', { username: SEC.user, token: SEC.jti });
+  setStage('in');
+}
+function signOut(reason, action) {
+  SEC.sessions = SEC.sessions.filter(s => !s.you);
+  audit('Operation', reason === 'admin' ? 'admin' : SEC.user, 'AUTHENTICATION', action, reason === 'admin' ? '192.168.10.5' : SEC.ip, 'SUCCESS', { username: SEC.user });
+  const m = { user: ['info', 'You signed out.'], expired: ['warn', 'Your session expired. Sign in again.'], admin: ['warn', 'An administrator ended your session.'] }[reason];
+  setStage('login', m);
+}
+function renderSignin() {
+  const el = $('#signin'); const m = SEC.msg ? `<div class="msg ${SEC.msg[0]}" role="status">${esc(SEC.msg[1])}</div>` : '';
+  if (SEC.stage === 'login') {
+    el.innerHTML = `<div class="logo">Edge Console</div>${m}
+      <form id="lgForm" class="grid" style="gap:10px" novalidate>
+        <div class="field"><label for="lg-user">User ID</label><input type="text" id="lg-user" value="operator1" autocomplete="off"></div>
+        <div class="field"><label for="lg-pw">Password</label><input type="password" id="lg-pw" autocomplete="off"></div>
+        <button class="cbtn" type="submit">Sign in</button>
+      </form>
+      <p class="demo-cred">Demo password: <code>${SEC.pw}</code>. Try a wrong one ${SEC.limit} times to see the lockout.</p>`;
+    $('#lgForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const u = $('#lg-user').value.trim(), p = $('#lg-pw').value;
+      const generic = ['crit', 'Sign-in failed. Check your user ID and password, or contact your administrator.'];
+      if (SEC.locked) { audit('Operation', u || '-', 'AUTHENTICATION', 'LOGIN', SEC.ip, 'FAIL', { username: u, password: p, reason: 'locked' }); setStage('login', generic); return; }
+      if (u !== SEC.user || p !== SEC.pw) {
+        if (u === SEC.user) SEC.fails++;
+        audit('Operation', u || '-', 'AUTHENTICATION', 'LOGIN', SEC.ip, 'FAIL', { username: u, password: p });
+        if (u === SEC.user && SEC.fails >= SEC.limit) lockAccount('pw');
+        setStage('login', generic); return;
+      }
+      if (SEC.twoFA) setStage('otp'); else afterAuth();
+    });
+  } else if (SEC.stage === 'otp') {
+    el.innerHTML = `<div class="logo">Edge Console</div>${m}
+      <p style="font-size:.85rem">Enter the 6-digit code from your authenticator app.</p>
+      <div class="authapp" aria-label="Simulated authenticator app">
+        <svg class="ring" viewBox="0 0 30 30" aria-hidden="true"><circle class="bgc" cx="15" cy="15" r="12"/><circle class="fg" id="otpRing" cx="15" cy="15" r="12" stroke-dasharray="75.4" stroke-dashoffset="0"/></svg>
+        <div><div class="who">Authenticator · Edge Console (operator1)</div><div class="code" id="otpCode">${otpFor(otpStep())}</div></div>
+      </div>
+      <form id="otpForm" class="grid" style="gap:10px" novalidate>
+        <div class="field"><label for="otp-in">Verification code</label><input type="text" id="otp-in" inputmode="numeric" maxlength="6" autocomplete="one-time-code" placeholder="000000"></div>
+        <button class="cbtn" type="submit">Verify</button>
+      </form>
+      <p class="demo-cred">TOTP · SHA-256 · 30-second period · 6 digits. The code also works for one step after it changes, to allow for clock drift.</p>`;
+    tickOtp();
+    $('#otp-in').focus();
+    $('#otpForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const v = $('#otp-in').value.trim(), st = otpStep();
+      if (SEC.locked) { setStage('login', ['crit', 'Sign-in failed. Check your user ID and password, or contact your administrator.']); return; }
+      if (v === otpFor(st) || v === otpFor(st - 1)) { audit('Operation', SEC.user, 'AUTHENTICATION_TWO_FACTOR', 'VERIFY', SEC.ip, 'SUCCESS', { otp: v }); afterAuth(); return; }
+      SEC.otpFails++;
+      audit('Operation', SEC.user, 'AUTHENTICATION_TWO_FACTOR', 'VERIFY', SEC.ip, 'FAIL', { otp: v });
+      if (SEC.otpFails >= SEC.limit) { lockAccount('otp'); setStage('login', ['crit', 'Sign-in failed. Check your user ID and password, or contact your administrator.']); return; }
+      setStage('otp', ['crit', 'That code did not work. Check the code and try again.']);
+    });
+  } else if (SEC.stage === 'dup') {
+    const other = SEC.sessions.find(s => s.user === SEC.user && !s.you);
+    el.innerHTML = `<div class="logo">Edge Console</div>
+      <div class="msg warn">This account is already signed in from <b>${esc(other.client)}</b>. Continue here and end that session?</div>
+      <div class="form-acts"><button class="cbtn" type="button" id="dupYes">Continue and end it</button><button class="cbtn ghost" type="button" id="dupNo">Cancel</button></div>`;
+    $('#dupYes').addEventListener('click', () => {
+      SEC.sessions = SEC.sessions.filter(s => s !== other);
+      audit('Operation', SEC.user, 'AUTHENTICATION', 'DUPLICATE_USERNAME', SEC.ip, 'SUCCESS', { ended: other.client });
+      event('warn', `Ended duplicate session for ${SEC.user} at ${other.client.split(' ·')[0]}`);
+      signedIn();
+    });
+    $('#dupNo').addEventListener('click', () => setStage('login', ['info', 'Sign-in cancelled. The other session is still active.']));
+  } else {
+    el.innerHTML = `<div class="logo">Edge Console</div>${m}
+      <div style="display:flex;justify-content:space-between;align-items:end;gap:10px;flex-wrap:wrap">
+        <div><div class="hint">Session ends in</div><div class="timer" id="sessTimer">10:00</div></div>
+        <span class="pill ok">Signed in · OPERATOR</span>
+      </div>
+      <div id="extendBox"></div>
+      <dl class="sess"><dt>Token ID</dt><dd id="jtiOut">${SEC.jti}</dd><dt>Bound to</dt><dd>${SEC.ip} · ${SEC.ua}</dd></dl>
+      <div class="acts">
+        <button class="mini" type="button" id="reqOk">Call API</button>
+        <button class="mini" type="button" id="reqSteal">Replay token from another PC</button>
+        <button class="mini" type="button" id="ffw">Skip to last 15 s</button>
+        <button class="mini" type="button" id="lgOut">Sign out</button>
+      </div>
+      <ul class="reqlog" id="reqLog"></ul>`;
+    tickSession();
+    renderReqs();
+    $('#reqOk').addEventListener('click', () => { SEC.reqs.unshift(`<li class="c200">${clock()} GET /api/dashboard · ${SEC.ip} · 200 OK</li>`); renderReqs(); });
+    $('#reqSteal').addEventListener('click', () => { SEC.reqs.unshift(`<li class="c401">${clock()} GET /api/dashboard · 10.9.14.2 · 401 token bound to another client</li>`); renderReqs(); });
+    $('#ffw').addEventListener('click', () => { SEC.sessionEnd = now() + 15000; tickSession(); });
+    $('#lgOut').addEventListener('click', () => signOut('user', 'LOGOUT'));
+  }
+}
+function renderReqs() { const l = $('#reqLog'); if (l) l.innerHTML = SEC.reqs.slice(0, 4).join(''); }
+function afterAuth() {
+  if (SEC.dup && SEC.sessions.some(s => s.user === SEC.user && !s.you)) setStage('dup'); else signedIn();
+}
+function extend() {
+  const old = SEC.jti; SEC.jti = jti(); SEC.sessionEnd = now() + SESSION_S * 1000; SEC.prompt = false;
+  audit('Operation', SEC.user, 'AUTHENTICATION', 'REFRESH', SEC.ip, 'SUCCESS', { oldToken: old, newToken: SEC.jti });
+  $('#jtiOut').textContent = SEC.jti; $('#extendBox').innerHTML = ''; tickSession();
+  SEC.reqs.unshift(`<li class="c200">${clock()} POST /api/auth/refresh · token rotated</li>`); renderReqs();
+}
+function tickSession() {
+  if (SEC.stage !== 'in') return;
+  const left = Math.max(0, Math.ceil((SEC.sessionEnd - now()) / 1000));
+  const t = $('#sessTimer'); if (t) { t.textContent = mmss(left); t.classList.toggle('low', left <= 10); }
+  if (left <= 10 && left > 0 && !SEC.prompt) {
+    SEC.prompt = true;
+    $('#extendBox').innerHTML = `<div class="msg warn">Your session is about to end. Extend it?<div class="form-acts" style="margin-top:8px"><button class="cbtn" type="button" id="extYes">Extend session</button><button class="cbtn ghost" type="button" id="extNo">Sign out</button></div></div>`;
+    $('#extYes').addEventListener('click', extend);
+    $('#extNo').addEventListener('click', () => signOut('user', 'LOGOUT'));
+  }
+  if (left === 0) signOut('expired', 'EXPIRED');
+}
+function tickOtp() {
+  if (SEC.stage !== 'otp') return;
+  const c = $('#otpCode'); if (!c) return;
+  c.textContent = otpFor(otpStep()).replace(/(\d{3})(\d{3})/, '$1 $2');
+  const frac = (now() % 30000) / 30000;
+  $('#otpRing').setAttribute('stroke-dashoffset', (75.4 * frac).toFixed(1));
+}
+function renderAdmin() {
+  const st = $('#acctState');
+  const left = SEC.locked ? Math.max(0, Math.ceil((SEC.lockedUntil - now()) / 1000)) : 0;
+  st.innerHTML = `<div style="display:flex;justify-content:space-between;align-items:center;gap:8px;flex-wrap:wrap">
+      ${SEC.locked ? `<span class="pill crit">Locked · unlocks in <span id="lockLeft" class="num">${mmss(left)}</span></span>` : '<span class="pill ok">Active</span>'}
+      ${SEC.locked ? '<button class="mini" type="button" id="unlock">Unlock now</button>' : ''}
+    </div>
+    <dl class="sess" style="margin-top:10px"><dt>Password failures</dt><dd>${SEC.fails} / ${SEC.limit}</dd><dt>Code failures</dt><dd>${SEC.otpFails} / ${SEC.limit}</dd><dt>2FA</dt><dd>${SEC.twoFA ? 'Enrolled' : 'Off'}</dd></dl>`;
+  const u = $('#unlock'); if (u) u.addEventListener('click', () => unlock('admin'));
+  $('#sessBody').innerHTML = SEC.sessions.map((s, i) => `<tr><td><b>${s.user}</b>${s.me ? ' <span class="hint">(you)</span>' : ''}</td><td class="mono">${esc(s.client)}</td><td class="mono">${s.since}</td><td>${s.me ? '' : `<button class="mini danger" data-kick="${i}">End session</button>`}</td></tr>`).join('');
+}
+function unlock(by) {
+  SEC.locked = false; SEC.fails = 0; SEC.otpFails = 0;
+  audit('Operation', by, 'ACCOUNT', 'UNLOCK_LOGIN_FAIL', by === 'admin' ? '192.168.10.5' : '-', 'SUCCESS', { username: SEC.user });
+  event('ok', `${SEC.user} unlocked`); renderAdmin();
+  if (SEC.stage === 'login') setStage('login', null);
+}
+$('#sessBody').addEventListener('click', e => {
+  const b = e.target.closest('[data-kick]'); if (!b) return;
+  const s = SEC.sessions[+b.dataset.kick];
+  if (s.you) { event('warn', `Admin ended ${s.user}'s session · SSE EXPULSION sent`); signOut('admin', 'EXPULSION'); return; }
+  SEC.sessions.splice(+b.dataset.kick, 1);
+  audit('Operation', 'admin', 'AUTHENTICATION', 'EXPULSION', '192.168.10.5', 'SUCCESS', { username: s.user, client: s.client });
+  event('warn', `Admin ended ${s.user}'s session`); renderAdmin();
+});
+$('#pol-limit').addEventListener('change', e => { SEC.limit = +e.target.value; audit('Operation', 'admin', 'AUTHENTICATION_FAIL', 'SET', '192.168.10.5', 'SUCCESS', { limit: SEC.limit, lockMinutes: SEC.lockMin }); renderAdmin(); if (SEC.stage === 'login') renderSignin(); });
+$('#pol-lock').addEventListener('change', e => { SEC.lockMin = +e.target.value; audit('Operation', 'admin', 'AUTHENTICATION_FAIL', 'SET', '192.168.10.5', 'SUCCESS', { limit: SEC.limit, lockMinutes: SEC.lockMin }); });
+$('#pol-2fa').addEventListener('change', e => { SEC.twoFA = e.target.checked; audit('Operation', 'admin', 'AUTHENTICATION_TWO_FACTOR', 'SET', '192.168.10.5', 'SUCCESS', { enabled: SEC.twoFA }); renderAdmin(); });
+$('#pol-dup').addEventListener('change', e => { SEC.dup = e.target.checked; audit('Operation', 'admin', 'AUTHENTICATION_DUPLICATE', 'SET', '192.168.10.5', 'SUCCESS', { enabled: SEC.dup }); });
+
+/* password rules */
+const KB = ['qwertyuiop', 'asdfghjkl', 'zxcvbnm', '1234567890'];
+const RESERVED = ['admin', 'root', 'system', 'password'];
+function hasSeq(s) { for (let i = 0; i + 2 < s.length; i++) { const a = s.charCodeAt(i), b = s.charCodeAt(i + 1), c = s.charCodeAt(i + 2); if ((b - a === 1 && c - b === 1) || (a - b === 1 && b - c === 1)) return true; } return false; }
+function hasKb(s) { s = s.toLowerCase(); for (const row of KB) { const r = row + ' ' + [...row].reverse().join(''); for (let i = 0; i + 2 < s.length; i++) { const t = s.slice(i, i + 3); if (/^[a-z0-9]{3}$/.test(t) && r.includes(t)) return true; } } return false; }
+function pwRules(p) {
+  const l = p.toLowerCase();
+  return [
+    ['At least 10 characters', p.length >= 10],
+    ['An uppercase letter', /[A-Z]/.test(p)],
+    ['A lowercase letter', /[a-z]/.test(p)],
+    ['A number', /\d/.test(p)],
+    ['A special character', /[^A-Za-z0-9]/.test(p)],
+    ['No character 3 times in a row', !/(.)\1\1/.test(p)],
+    ['No sequences like abc or 321', !hasSeq(p)],
+    ['No keyboard runs like qwe or asd', !hasKb(p)],
+    ['Does not contain the user ID', !l.includes('operator1') && !l.includes('operator')],
+    ['No reserved words (admin, root…)', !RESERVED.some(w => l.includes(w))],
+  ];
+}
+function renderPw() {
+  const p = $('#pw-try').value; const r = pwRules(p); const ok = r.filter(x => x[1]).length;
+  $('#pwRules').innerHTML = r.map(([t, pass]) => `<li class="${p ? (pass ? 'pass' : 'fail') : ''}">${t}</li>`).join('');
+  const bar = $('#pwBar'); const pct = p ? ok / r.length * 100 : 0;
+  bar.style.width = pct + '%'; bar.style.background = pct === 100 ? 'var(--ok)' : pct >= 70 ? 'var(--warn)' : 'var(--crit)';
+}
+$('#pw-try').addEventListener('input', renderPw);
+
+/* audit */
+function renderAudit() {
+  const f = $('#auFilter').value, q = $('#auSearch').value.trim().toLowerCase();
+  const rows = S.audit.filter(a => (f === 'all' || a.log === f) && (!q || [a.user, a.ev, a.action, a.ip].join(' ').toLowerCase().includes(q))).slice(0, 40);
+  const rc = r => r === 'SUCCESS' ? 'ok' : r === 'FAIL' ? 'crit' : r === 'WARN' ? 'warn' : 'info';
+  $('#auBody').innerHTML = rows.length ? rows.map(a => `<tr><td class="mono">${a.t}</td><td>${a.log}</td><td class="mono">${esc(a.user)}</td><td class="mono">${a.ev}</td><td class="mono">${a.action}</td><td class="mono">${a.ip}</td><td><span class="pill ${rc(a.result)}">${a.result}</span></td><td class="detail">${esc(a.detail)}</td></tr>`).join('')
+    : '<tr><td colspan="8" class="hint">No matching entries.</td></tr>';
+}
+$('#auFilter').addEventListener('change', renderAudit);
+$('#auSearch').addEventListener('input', renderAudit);
+
+/* copy email */
+$('#copyAddr').addEventListener('click', () => {
+  const t = $('#addr').textContent, b = $('#copyAddr');
+  const sel = () => { const r = document.createRange(); r.selectNodeContents($('#addr')); const s = getSelection(); s.removeAllRanges(); s.addRange(r); b.textContent = 'Selected'; };
+  try { navigator.clipboard.writeText(t).then(() => { b.textContent = 'Copied'; }, sel); } catch { sel(); }
+  setTimeout(() => b.textContent = 'Copy', 2000);
+});
+
+/* ---------- seed ---------- */
+[['08:02:11', 'Operation', 'admin', 'AUTHENTICATION', 'LOGIN', '192.168.10.5', 'SUCCESS', { username: 'admin', token: 'x' }],
+ ['08:04:47', 'Operation', 'admin', 'ACCESS_IP', 'CREATE', '192.168.10.5', 'SUCCESS', { range: '10.0.4.0/24' }],
+ ['08:12:30', 'Operation', 'operator1', 'AUTHENTICATION', 'LOGIN', '10.0.4.21', 'SUCCESS', { username: 'operator1', password: 'x' }],
+ ['08:20:00', 'System', 'system', 'INTEGRITY_CHECK', 'AUTO_CHECK', '-', 'SUCCESS', { files: 14, mismatches: 0 }]]
+  .reverse().forEach(([t, log, user, ev, action, ip, result, d]) => S.audit.unshift({ t, log, user, ev, action, ip, result, detail: JSON.stringify(mask(d)) }));
+S.events = [
+  { t: '08:20:00', level: 'ok', text: 'Integrity check passed · 14 files' },
+  { t: '08:12:30', level: 'info', text: 'operator1 signed in from 10.0.4.21' },
+  { t: '08:05:02', level: 'info', text: 'Route line3-telemetry → Kafka started' },
+];
+renderChips(); renderPw(); renderDevFields(); renderRtFields(); renderDevices(); renderBell(); renderDb();
+$('#th-cpu').value = S.th.cpu;
+initCharts();
+selectTab('dashboard');
+
+/* ---------- 1 s tick (stands in for the SSE stream) ---------- */
+let tickN = 0;
+setInterval(() => {
+  tickN++;
+  $('#clk').textContent = clock();
+  stepMetrics(false);
+  S.services.forEach(s => { if (s.status === 'running') s.up++; });
+  if (cur.cpu >= S.th.cpu && now() - (S.lastAlarm.cpu || 0) > 20000) { S.lastAlarm.cpu = now(); alarm('warn', 'RESOURCE_WARNING', `CPU at ${cur.cpu.toFixed(0)} %`, `Above the ${S.th.cpu} % threshold.`); }
+  if (cur.mem >= S.th.mem && now() - (S.lastAlarm.mem || 0) > 20000) { S.lastAlarm.mem = now(); alarm('warn', 'RESOURCE_WARNING', `Memory at ${cur.mem.toFixed(0)} %`, `Above the ${S.th.mem} % threshold.`); }
+  if (tickN % 7 === 0) event('info', ['Tag snapshot written to Kafka', 'CEP rule "press over-temp" evaluated', 'Store batch committed', 'Driver poll cycle completed'][Math.floor(Math.random() * 4)]);
+  S.mailTick--; if (S.mailTick <= 0) { flushMail(); S.mailTick = 10; }
+  if (SEC.locked && now() >= SEC.lockedUntil) unlock('system');
+  if (S.tab === 'dashboard') { renderKpis(); updateCharts(tickN % 5 === 0); if (tickN % 5 === 0) renderServices(); }
+  if (S.tab === 'routes') tickRoutes();
+  if (S.tab === 'alerts') renderMail();
+  if (S.tab === 'security') {
+    tickSession(); tickOtp();
+    const ll = $('#lockLeft'); if (ll && SEC.locked) ll.textContent = mmss(Math.max(0, Math.ceil((SEC.lockedUntil - now()) / 1000)));
+  }
+  if (SEC.stage === 'in' && S.tab !== 'security') { const left = Math.ceil((SEC.sessionEnd - now()) / 1000); if (left <= 0) signOut('expired', 'EXPIRED'); }
+}, 1000);
+$('#clk').textContent = clock();
+})();
+</script>
